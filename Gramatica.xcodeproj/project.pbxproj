@@ -47,6 +47,8 @@
 		6182078F1F8446F000D2BA9C /* GramaticaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GramaticaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		618207931F8446F000D2BA9C /* GramaticaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GramaticaUITests.swift; sourceTree = "<group>"; };
 		618207951F8446F000D2BA9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		618207A11F84492A00D2BA9C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		618207A21F84492A00D2BA9C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +302,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				618207781F8446EF00D2BA9C /* Base */,
+				618207A11F84492A00D2BA9C /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6182077D1F8446EF00D2BA9C /* Base */,
+				618207A21F84492A00D2BA9C /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -319,6 +323,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -376,6 +381,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
