@@ -19,6 +19,8 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     @IBOutlet weak var fourthButton: UIButton!
     @IBOutlet weak var fifthButton: UIButton!
     @IBOutlet weak var sixthButton: UIButton!
+    @IBOutlet weak var progresTime: KDCircularProgress!
+    @IBOutlet weak var heartsGiftLabel: UILabel!
     
     
     @IBAction func firtsWord(_ sender: UIButton) {
@@ -49,6 +51,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
          super.viewWillAppear(animated)
         ortograficTagger.exerciseDelegate = self
         newExercise()
+        progresTime.animate(toAngle:360, duration:10, completion:nil)
     }
     
     
@@ -103,16 +106,17 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
             print("Error")
             sender.setTitleColor(.red, for:.normal)
         }
-
+        
     }
     
+    
     func resetButtonColors() {
-        firtsButton.setTitleColor(.white, for:.normal)
-        secondButton.setTitleColor(.white, for:.normal)
-        thirthButton.setTitleColor(.white, for:.normal)
-        fourthButton.setTitleColor(.white, for:.normal)
-        fifthButton.setTitleColor(.white, for:.normal)
-        sixthButton.setTitleColor(.white, for:.normal)
+        firtsButton.setTitleColor(.blue, for:.normal)
+        secondButton.setTitleColor(.blue, for:.normal)
+        thirthButton.setTitleColor(.blue, for:.normal)
+        fourthButton.setTitleColor(.blue, for:.normal)
+        fifthButton.setTitleColor(.blue, for:.normal)
+        sixthButton.setTitleColor(.blue, for:.normal)
     }
     
     
