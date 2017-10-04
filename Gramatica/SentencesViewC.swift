@@ -67,7 +67,9 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     func newExercise(sentence:String, target:String) {
         fill(target:target)
         fill(sentence:sentence)
+        resetButtonColors()
     }
+    
     
     func fill(target:String) {
         exerciseTaskLabel.text = target
@@ -104,6 +106,14 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
 
     }
     
+    func resetButtonColors() {
+        firtsButton.setTitleColor(.white, for:.normal)
+        secondButton.setTitleColor(.white, for:.normal)
+        thirthButton.setTitleColor(.white, for:.normal)
+        fourthButton.setTitleColor(.white, for:.normal)
+        fifthButton.setTitleColor(.white, for:.normal)
+        sixthButton.setTitleColor(.white, for:.normal)
+    }
     
     
     /*

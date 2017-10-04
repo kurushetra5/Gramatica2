@@ -25,6 +25,9 @@ class OrtograficTagger {
     var selectedSentence:String!
     
     
+    
+    
+    
   public  func newExercise() {
         lookedTarget =  newTarget()
        selectedSentence = newSentence()
@@ -91,11 +94,10 @@ class OrtograficTagger {
         tager.enumerateTags(in: range, scheme:.nameTypeOrLexicalClass, options: NSLinguisticTagger.Options(rawValue: tokenOptions),using: { tag, tokenRange,sentenceRange , stop in
             let world = (sentence as NSString).substring(with:tokenRange)
             let convertTag = tag!.rawValue
-//            print("\(convertTag): \(world)")
             sentenceTagged[convertTag] = world
             
         })
-//        print(sentenceTagged)
+ 
     }
     
     
