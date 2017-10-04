@@ -63,8 +63,9 @@ class SentencesViewC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func fillTarget() {
-        
+    
+    func fill(target:String) {
+        exerciseTaskLabel.text = target
     }
     
     
@@ -88,8 +89,11 @@ class SentencesViewC: UIViewController {
         
         if ortograficTagger.checkMatch(word:(sender.titleLabel?.text)!) {
             print("Acierto")
+            sender.setTitleColor(.green, for:.normal)
+            fill(target:ortograficTagger.newTarget())
         }else {
             print("Error")
+            sender.setTitleColor(.red, for:.normal)
         }
 
     }

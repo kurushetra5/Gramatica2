@@ -35,8 +35,10 @@ class OrtograficTagger {
     }
     
     
-    func newTarget() {
+    func newTarget() -> String {
+        
         lookedTarget = "Verb"
+        return lookedTarget
     }
     
     
