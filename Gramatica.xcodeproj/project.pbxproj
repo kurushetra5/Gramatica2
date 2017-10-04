@@ -50,9 +50,9 @@
 		6182078F1F8446F000D2BA9C /* GramaticaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GramaticaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		618207931F8446F000D2BA9C /* GramaticaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GramaticaUITests.swift; sourceTree = "<group>"; };
 		618207951F8446F000D2BA9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		618207A11F84492A00D2BA9C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
-		618207A21F84492A00D2BA9C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		618207A31F8453FD00D2BA9C /* SentencesViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentencesViewC.swift; sourceTree = "<group>"; };
+		61D2DB171F85681F00D7C4B3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		61D2DB181F85681F00D7C4B3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,11 +106,11 @@
 				618207731F8446EF00D2BA9C /* AppDelegate.swift */,
 				618207751F8446EF00D2BA9C /* ViewController.swift */,
 				618207A31F8453FD00D2BA9C /* SentencesViewC.swift */,
+				6149B9CA1F8457C6003DC6A7 /* OrtograficTagger.swift */,
 				618207771F8446EF00D2BA9C /* Main.storyboard */,
 				6182077A1F8446EF00D2BA9C /* Assets.xcassets */,
 				6182077C1F8446EF00D2BA9C /* LaunchScreen.storyboard */,
 				6182077F1F8446EF00D2BA9C /* Info.plist */,
-				6149B9CA1F8457C6003DC6A7 /* OrtograficTagger.swift */,
 			);
 			path = Gramatica;
 			sourceTree = "<group>";
@@ -310,7 +310,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				618207781F8446EF00D2BA9C /* Base */,
-				618207A11F84492A00D2BA9C /* es */,
+				61D2DB171F85681F00D7C4B3 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -319,7 +319,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6182077D1F8446EF00D2BA9C /* Base */,
-				618207A21F84492A00D2BA9C /* es */,
+				61D2DB181F85681F00D7C4B3 /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

@@ -8,23 +8,36 @@
 
 import Foundation
 
+protocol ExerciseDelegate {
+    func newExercise(sentence:String, target:String)
+}
 
 
 class OrtograficTagger {
     
-    
+    var exerciseDelegate:ExerciseDelegate!
     var sentenceWords:[String] = ["Luis","es","el","mejor","de","todos"]
-    var sentenceWords2:String = "Luis es el mejor de todos"
+    var sentenceWords2:[String] = ["Luis es el mejor de todos","Luis era mas guapo que tu","Luis no come mucho por ahora"]
     var lookedTarget = "Verb"
     
-    var targets:[String] = ["Verb","PersonalName","Adjective","Preposition","Determiner","com"]
+    var targets:[String] = ["Verb","PersonalName","Adjective","Preposition","Determiner"]
     var sentenceTagged:[String:String] = [:]
+    var selectedSentence:String!
     
     
+  public  func newExercise() {
+        lookedTarget =  newTarget()
+       selectedSentence = newSentence()
+        if checkIfSentenceMatch() {
+            exerciseDelegate?.newExercise(sentence:selectedSentence, target:lookedTarget)
+        }else {
+            newExercise()
+        }
+        
+    }
     
     
-    
-    func checkMatch(word:String)  -> Bool {
+  public  func checkMatch(word:String)  -> Bool {
         
         if word == sentenceTagged[lookedTarget] {
            return true
@@ -35,21 +48,39 @@ class OrtograficTagger {
     }
     
     
-    func newTarget() -> String {
+  private  func newTarget() -> String {
+        let randomNumber = Int(arc4random_uniform(UInt32(targets.count)))
+        return targets[randomNumber]
+    }
+    
+  private  func newSentence() -> String {
+        let randomNumber = Int(arc4random_uniform(UInt32(sentenceWords2.count)))
+        print(randomNumber)
+        return sentenceWords2[randomNumber]
+    }
+    
+    
+    
+    
+  private  func checkIfSentenceMatch() -> Bool {
         
-        lookedTarget = "Verb"
-        return lookedTarget
+        var isOk:Bool = false
+        tag(sentence:selectedSentence)
+        
+        for tag  in sentenceTagged {
+            if tag.key == lookedTarget {
+                print(tag.key)
+                print(lookedTarget)
+                isOk = true
+            }
+        }
+        return isOk
     }
     
     
-    func newSentence() -> String {
-        newTarget()
-        tag(sentence:sentenceWords2)
-        return sentenceWords2
-    }
     
-    
-    func tag(sentence:String) {
+  private  func tag(sentence:String) {
+    sentenceTagged  =  [:]
         let range = NSRange(location:0, length:sentence.utf16.count)
         let tokenOptions = NSLinguisticTagger.Options.omitWhitespace.rawValue | NSLinguisticTagger.Options.omitPunctuation.rawValue
         

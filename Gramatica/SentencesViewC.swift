@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SentencesViewC: UIViewController {
+class SentencesViewC: UIViewController,ExerciseDelegate {
 
     
     @IBOutlet weak var exerciseTaskLabel: UILabel!
@@ -47,7 +47,8 @@ class SentencesViewC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
-        fillSentence()
+        ortograficTagger.exerciseDelegate = self
+        newExercise()
     }
     
     
@@ -63,22 +64,27 @@ class SentencesViewC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func newExercise(sentence:String, target:String) {
+        fill(target:target)
+        fill(sentence:sentence)
+    }
     
     func fill(target:String) {
         exerciseTaskLabel.text = target
     }
-    
-    
-    func fillSentence() {
-       var sentence =  ortograficTagger.newSentence().components(separatedBy:" ")
-        
-       firtsButton.setTitle(sentence[0], for:.normal)
-        
-       secondButton.setTitle(sentence[1], for:.normal)
+    func fill(sentence:String) {
+        var sentence =  sentence.components(separatedBy:" ")
+        firtsButton.setTitle(sentence[0], for:.normal)
+        secondButton.setTitle(sentence[1], for:.normal)
         thirthButton.setTitle(sentence[2], for:.normal)
         fourthButton.setTitle(sentence[3], for:.normal)
         fifthButton.setTitle(sentence[4], for:.normal)
         sixthButton.setTitle(sentence[5], for:.normal)
+    }
+    
+    
+    func newExercise() {
+        ortograficTagger.newExercise()
     }
     
     
@@ -90,7 +96,7 @@ class SentencesViewC: UIViewController {
         if ortograficTagger.checkMatch(word:(sender.titleLabel?.text)!) {
             print("Acierto")
             sender.setTitleColor(.green, for:.normal)
-            fill(target:ortograficTagger.newTarget())
+            newExercise()
         }else {
             print("Error")
             sender.setTitleColor(.red, for:.normal)
