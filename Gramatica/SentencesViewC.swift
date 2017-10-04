@@ -21,6 +21,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     @IBOutlet weak var sixthButton: UIButton!
     @IBOutlet weak var progresTime: KDCircularProgress!
     @IBOutlet weak var heartsGiftLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     
     @IBAction func firtsWord(_ sender: UIButton) {
@@ -45,11 +46,14 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     
    var ortograficTagger = OrtograficTagger()
+    var student:Student!
     
     
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
         ortograficTagger.exerciseDelegate = self
+        student = Student(name:"Luis")
+        updateView()
         newExercise()
         progresTime.animate(toAngle:360, duration:10, completion:nil)
     }
@@ -67,10 +71,16 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func updateView() {
+        scoreLabel.text = String(student.score)
+        heartsGiftLabel.text = String(student.level.pointsForWiner())
+    }
+    
     func newExercise(sentence:String, target:String) {
         fill(target:target)
         fill(sentence:sentence)
         resetButtonColors()
+        progresTime.animate(toAngle:360, duration:10, completion:nil)
     }
     
     
@@ -101,6 +111,9 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         if ortograficTagger.checkMatch(word:(sender.titleLabel?.text)!) {
             print("Acierto")
             sender.setTitleColor(.green, for:.normal)
+            progresTime.stopAnimation()
+            student.win()
+            updateView()
             newExercise()
         }else {
             print("Error")

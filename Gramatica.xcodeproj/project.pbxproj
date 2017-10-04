@@ -17,6 +17,8 @@
 		618207941F8446F000D2BA9C /* GramaticaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618207931F8446F000D2BA9C /* GramaticaUITests.swift */; };
 		618207A41F8453FD00D2BA9C /* SentencesViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618207A31F8453FD00D2BA9C /* SentencesViewC.swift */; };
 		61D2DB1A1F8581A900D7C4B3 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2DB191F8581A900D7C4B3 /* KDCircularProgress.swift */; };
+		61D2DB1C1F85A3B200D7C4B3 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2DB1B1F85A3B200D7C4B3 /* Student.swift */; };
+		61D2DB1E1F85A45800D7C4B3 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2DB1D1F85A45800D7C4B3 /* Level.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		61D2DB171F85681F00D7C4B3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		61D2DB181F85681F00D7C4B3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		61D2DB191F8581A900D7C4B3 /* KDCircularProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
+		61D2DB1B1F85A3B200D7C4B3 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		61D2DB1D1F85A45800D7C4B3 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,8 @@
 				6182077A1F8446EF00D2BA9C /* Assets.xcassets */,
 				6182077C1F8446EF00D2BA9C /* LaunchScreen.storyboard */,
 				6182077F1F8446EF00D2BA9C /* Info.plist */,
+				61D2DB1B1F85A3B200D7C4B3 /* Student.swift */,
+				61D2DB1D1F85A45800D7C4B3 /* Level.swift */,
 			);
 			path = Gramatica;
 			sourceTree = "<group>";
@@ -271,6 +277,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				618207761F8446EF00D2BA9C /* ViewController.swift in Sources */,
+				61D2DB1E1F85A45800D7C4B3 /* Level.swift in Sources */,
+				61D2DB1C1F85A3B200D7C4B3 /* Student.swift in Sources */,
 				61D2DB1A1F8581A900D7C4B3 /* KDCircularProgress.swift in Sources */,
 				618207741F8446EF00D2BA9C /* AppDelegate.swift in Sources */,
 				618207A41F8453FD00D2BA9C /* SentencesViewC.swift in Sources */,
