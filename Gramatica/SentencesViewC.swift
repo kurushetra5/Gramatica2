@@ -78,19 +78,22 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     @objc func timerFire() {  //FIXME: cambiar ha swift  @objc
         
         timerCounter += 1
-        if timerCounter == 11 {
-            timerCounter = 0
+        if timerCounter == 10 {
+//            timerCounter = 0
+            updateView()
             stopTimer()
             progresTime.stopAnimation()
             newExercise()
-        }else if timerCounter == 4 || timerCounter == 8 {
+        }else if timerCounter == 5 || timerCounter == 8 {
+            student.level.tildForTime()
+            heartsGiftLabel.text = String(student.level.winerPoints)
             
         }
         
     }
     
     func stopTimer() {
-        
+        timerCounter = 0
         if (timer != nil) {
             timer.invalidate()
         }
@@ -102,12 +105,14 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     
     func updateView() {
+        student.level.resetTild()
         scoreLabel.text = String(student.score)
-        heartsGiftLabel.text = String(student.level.pointsForWiner())
+        heartsGiftLabel.text = String(student.level.winerPoints)
     }
     
     
     func newExercise(sentence:String, target:String) {
+        
         fill(target:target)
         fill(sentence:sentence)
         resetButtonColors()
@@ -115,7 +120,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         progresTime.animate(toAngle:360, duration:10) { (finish) in
             if finish == true {
                 //                OperationQueue.main.addOperation({
-                 self.progresTime.stopAnimation()
+//                 self.progresTime.stopAnimation()
 //                self.newExercise()
                 
                 //                })
@@ -155,15 +160,17 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
             stopTimer()
             progresTime.stopAnimation()
             student.win()
+            student.level.resetTild()
             updateView()
             newExercise()
         }else {
             print("Error")
             sender.setTitleColor(.red, for:.normal)
-//            stopTimer()
-//            progresTime.stopAnimation()
-            //            sleep(UInt32(2.0))
-//            newExercise()
+             stopTimer()
+             progresTime.stopAnimation()
+                         sleep(UInt32(2.0))
+            updateView()
+             newExercise()
         }
         
     }

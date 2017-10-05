@@ -14,15 +14,23 @@ class Level {
     var actualLevel = 1
     var endLevel:Bool!
     var endGame:Bool!
+    var winerPoints:Int = 5
+    
     
     func increaseLevel() {
         actualLevel += 1
     }
     
-    func pointsForWiner() -> Int {
-        return targetPoints[actualLevel]!
+    func pointsForWiner()  {
+        winerPoints = targetPoints[actualLevel]!
+    }
+    func resetTild() {
+        winerPoints = targetPoints[actualLevel]!
     }
     
-    
+    func tildForTime()  {
+        winerPoints = winerPoints - 1
+        
+    }
     
 }

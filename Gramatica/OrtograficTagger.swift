@@ -16,8 +16,9 @@ protocol ExerciseDelegate {
 class OrtograficTagger {
     
     var exerciseDelegate:ExerciseDelegate!
-    var sentenceWords:[String] = ["Luis","es","el","mejor","de","todos"]
-    var sentenceWords2:[String] = ["Luis es el mejor de todos","Luis era mas guapo que tu","Luis no come mucho por ahora"]
+//    var sentenceWords:[String] = ["Paco","es","el","mejor","de","todos"]
+//    var sentenceWords2:[String] = ["Paco es el mejor de todos","Paco era mas guapo que tu","Paco no come mucho por ahora"]
+     var sentenceWords2:[String] = ["David is running so far away","Paul is drinking a big bear","This is a very new app"]
     var lookedTarget = "Verb"
     
     var targets:[String] = ["Verb","PersonalName","Adjective","Preposition","Determiner"]

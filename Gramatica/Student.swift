@@ -24,8 +24,9 @@ class Student {
     }
     
     func win() {
-        score += level.pointsForWiner()
+        score += level.winerPoints
     }
+     
     
     
 }
