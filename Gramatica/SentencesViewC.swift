@@ -9,7 +9,7 @@
 import UIKit
 
 class SentencesViewC: UIViewController,ExerciseDelegate {
-
+    
     
     @IBOutlet weak var exerciseTaskLabel: UILabel!
     
@@ -37,7 +37,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         checkMatch(sender:sender)
     }
     @IBAction func fifthWord(_ sender: UIButton) {
-       checkMatch(sender:sender)
+        checkMatch(sender:sender)
     }
     @IBAction func sixthWord(_ sender: UIButton) {
         checkMatch(sender:sender)
@@ -45,42 +45,83 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     
     
-   var ortograficTagger = OrtograficTagger()
+    var ortograficTagger = OrtograficTagger()
     var student:Student!
-    
+    var timer:Timer!
+    var timerCounter:Int = 0
     
     override func viewWillAppear(_ animated: Bool) {
-         super.viewWillAppear(animated)
+        super.viewWillAppear(animated)
         ortograficTagger.exerciseDelegate = self
         student = Student(name:"Luis")
         updateView()
         newExercise()
-        progresTime.animate(toAngle:360, duration:10, completion:nil)
+        
     }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    
+    func startTimerEvery(seconds:Double) {
+        timer = Timer.scheduledTimer(timeInterval: seconds, target: self, selector:#selector(timerFire), userInfo: nil, repeats: true)
+        
+    }
+    
+    @objc func timerFire() {  //FIXME: cambiar ha swift  @objc
+        
+        timerCounter += 1
+        if timerCounter == 11 {
+            timerCounter = 0
+            stopTimer()
+            progresTime.stopAnimation()
+            newExercise()
+        }else if timerCounter == 4 || timerCounter == 8 {
+            
+        }
+        
+    }
+    
+    func stopTimer() {
+        
+        if (timer != nil) {
+            timer.invalidate()
+        }
+    }
+    
+    
+    
+    
+    
     
     func updateView() {
         scoreLabel.text = String(student.score)
         heartsGiftLabel.text = String(student.level.pointsForWiner())
     }
     
+    
     func newExercise(sentence:String, target:String) {
         fill(target:target)
         fill(sentence:sentence)
         resetButtonColors()
-        progresTime.animate(toAngle:360, duration:10, completion:nil)
+        startTimerEvery(seconds:1.0)
+        progresTime.animate(toAngle:360, duration:10) { (finish) in
+            if finish == true {
+                //                OperationQueue.main.addOperation({
+                 self.progresTime.stopAnimation()
+//                self.newExercise()
+                
+                //                })
+            }
+            
+        }
     }
     
     
@@ -111,6 +152,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         if ortograficTagger.checkMatch(word:(sender.titleLabel?.text)!) {
             print("Acierto")
             sender.setTitleColor(.green, for:.normal)
+            stopTimer()
             progresTime.stopAnimation()
             student.win()
             updateView()
@@ -118,6 +160,10 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         }else {
             print("Error")
             sender.setTitleColor(.red, for:.normal)
+//            stopTimer()
+//            progresTime.stopAnimation()
+            //            sleep(UInt32(2.0))
+//            newExercise()
         }
         
     }
@@ -134,13 +180,13 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
