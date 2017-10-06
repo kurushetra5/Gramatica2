@@ -66,66 +66,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cHq-lc-8By">
-                                <rect key="frame" x="0.0" y="276" width="568" height="44"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYh-LV-HMW">
-                                        <rect key="frame" x="0.0" y="0.0" width="94.5" height="44"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                        <state key="normal" title="B"/>
-                                        <connections>
-                                            <action selector="firtsWord:" destination="GZJ-Ur-4F4" eventType="touchUpInside" id="Br0-dL-acJ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLi-W2-L9c">
-                                        <rect key="frame" x="94.5" y="0.0" width="95" height="44"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                        <state key="normal" title="B"/>
-                                        <connections>
-                                            <action selector="secondWord:" destination="GZJ-Ur-4F4" eventType="touchUpInside" id="LBs-C3-3f6"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r4i-JG-nqv">
-                                        <rect key="frame" x="189.5" y="0.0" width="94.5" height="44"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                        <state key="normal" title="B"/>
-                                        <connections>
-                                            <action selector="thirthWord:" destination="GZJ-Ur-4F4" eventType="touchUpInside" id="zBf-ka-ifO"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3HX-gK-bss">
-                                        <rect key="frame" x="284" y="0.0" width="94.5" height="44"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                        <state key="normal" title="B"/>
-                                        <connections>
-                                            <action selector="fourthWord:" destination="GZJ-Ur-4F4" eventType="touchUpInside" id="idC-pC-ab8"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Z3-4i-DRS">
-                                        <rect key="frame" x="378.5" y="0.0" width="95" height="44"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                        <state key="normal" title="B"/>
-                                        <connections>
-                                            <action selector="fifthWord:" destination="GZJ-Ur-4F4" eventType="touchUpInside" id="avd-ml-baK"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpd-hK-Qdl">
-                                        <rect key="frame" x="473.5" y="0.0" width="94.5" height="44"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                        <state key="normal" title="B"/>
-                                        <connections>
-                                            <action selector="sixthWord:" destination="GZJ-Ur-4F4" eventType="touchUpInside" id="OtZ-K1-srk"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="r4i-JG-nqv" firstAttribute="leading" secondItem="hLi-W2-L9c" secondAttribute="trailing" id="05x-lE-zhs"/>
-                                    <constraint firstItem="0Z3-4i-DRS" firstAttribute="leading" secondItem="3HX-gK-bss" secondAttribute="trailing" id="7VC-SD-XI5"/>
-                                    <constraint firstItem="fpd-hK-Qdl" firstAttribute="leading" secondItem="0Z3-4i-DRS" secondAttribute="trailing" id="AEk-9X-mv0"/>
-                                    <constraint firstItem="hLi-W2-L9c" firstAttribute="leading" secondItem="iYh-LV-HMW" secondAttribute="trailing" id="Gge-JV-41X"/>
-                                    <constraint firstItem="3HX-gK-bss" firstAttribute="leading" secondItem="r4i-JG-nqv" secondAttribute="trailing" id="oxn-qC-m9i"/>
-                                </constraints>
-                            </stackView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Etm-PX-9Oh" customClass="KDCircularProgress" customModule="Gramatica" customModuleProvider="target">
                                 <rect key="frame" x="184" y="72" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -183,7 +123,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the Verb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8im-Zw-We2">
-                                <rect key="frame" x="0.0" y="32" width="568" height="31.5"/>
+                                <rect key="frame" x="0.0" y="32" width="568" height="32"/>
                                 <viewLayoutGuide key="safeArea" id="m1h-3D-bLN"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -192,31 +132,22 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="cbg-Q7-I8f" firstAttribute="trailing" secondItem="cHq-lc-8By" secondAttribute="trailing" id="6QG-5P-7yr"/>
-                            <constraint firstItem="cHq-lc-8By" firstAttribute="bottom" secondItem="cbg-Q7-I8f" secondAttribute="bottom" id="Pj1-Xv-ity"/>
                             <constraint firstItem="8im-Zw-We2" firstAttribute="leading" secondItem="cbg-Q7-I8f" secondAttribute="leading" id="lRp-Bo-ywv"/>
                             <constraint firstItem="8im-Zw-We2" firstAttribute="trailing" secondItem="cbg-Q7-I8f" secondAttribute="trailing" id="pZJ-3N-r7M"/>
-                            <constraint firstItem="cHq-lc-8By" firstAttribute="leading" secondItem="cbg-Q7-I8f" secondAttribute="leading" id="uOK-mV-ZqB"/>
                             <constraint firstItem="8im-Zw-We2" firstAttribute="top" secondItem="cbg-Q7-I8f" secondAttribute="top" id="yD9-Kz-e7T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cbg-Q7-I8f"/>
                     </view>
                     <connections>
                         <outlet property="exerciseTaskLabel" destination="8im-Zw-We2" id="LpI-Ym-nlc"/>
-                        <outlet property="fifthButton" destination="0Z3-4i-DRS" id="AlK-Bg-DAJ"/>
-                        <outlet property="firtsButton" destination="iYh-LV-HMW" id="xDf-7u-864"/>
-                        <outlet property="fourthButton" destination="3HX-gK-bss" id="DpS-AU-zPI"/>
                         <outlet property="heartsGiftLabel" destination="7mn-JK-2ip" id="7P7-Re-CYD"/>
                         <outlet property="progresTime" destination="Etm-PX-9Oh" id="IYZ-v1-znG"/>
                         <outlet property="scoreLabel" destination="9OK-QC-kya" id="wsr-c4-HUj"/>
-                        <outlet property="secondButton" destination="hLi-W2-L9c" id="IzP-qc-WId"/>
-                        <outlet property="sixthButton" destination="fpd-hK-Qdl" id="XDQ-2c-HtN"/>
-                        <outlet property="thirthButton" destination="r4i-JG-nqv" id="Xtb-hT-b7i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Afv-AQ-l1F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-245" y="4"/>
+            <point key="canvasLocation" x="-275" y="2"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OAc-k9-CvP">

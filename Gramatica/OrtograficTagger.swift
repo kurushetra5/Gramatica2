@@ -18,7 +18,7 @@ class OrtograficTagger {
     var exerciseDelegate:ExerciseDelegate!
 //    var sentenceWords:[String] = ["Paco","es","el","mejor","de","todos"]
 //    var sentenceWords2:[String] = ["Paco es el mejor de todos","Paco era mas guapo que tu","Paco no come mucho por ahora"]
-     var sentenceWords2:[String] = ["David is running so far away","Paul is drinking a big bear","This is a very new app"]
+     var sentenceWords2:[String] = ["David is running so far away from here","Paul is drinking a big bear in the bar","This is a very new app from luis sintes estevez"]
     var lookedTarget = "Verb"
     
     var targets:[String] = ["Verb","PersonalName","Adjective","Preposition","Determiner"]
@@ -88,7 +88,7 @@ class OrtograficTagger {
         let range = NSRange(location:0, length:sentence.utf16.count)
         let tokenOptions = NSLinguisticTagger.Options.omitWhitespace.rawValue | NSLinguisticTagger.Options.omitPunctuation.rawValue
         
-        let tager:NSLinguisticTagger = NSLinguisticTagger(tagSchemes:NSLinguisticTagger.availableTagSchemes(forLanguage:"es"), options:Int(tokenOptions))
+        let tager:NSLinguisticTagger = NSLinguisticTagger(tagSchemes:NSLinguisticTagger.availableTagSchemes(forLanguage:"en"), options:Int(tokenOptions))
         
         tager.string = sentence
         

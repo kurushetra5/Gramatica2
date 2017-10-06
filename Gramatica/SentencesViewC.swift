@@ -13,42 +13,31 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     @IBOutlet weak var exerciseTaskLabel: UILabel!
     
-    @IBOutlet weak var firtsButton: UIButton!
-    @IBOutlet weak var secondButton: UIButton!
-    @IBOutlet weak var thirthButton: UIButton!
-    @IBOutlet weak var fourthButton: UIButton!
-    @IBOutlet weak var fifthButton: UIButton!
-    @IBOutlet weak var sixthButton: UIButton!
+    
+//    @IBOutlet weak var firtsButton: UILabel!
+//    @IBOutlet weak var secondButton: UILabel!
+//    @IBOutlet weak var thirthButton: UILabel!
+//    @IBOutlet weak var fourthButton: UILabel!
+//    @IBOutlet weak var fifthButton: UILabel!
+//    @IBOutlet weak var sixthButton: UILabel!
+//
+     var stackSentences: UIStackView!
+    
     @IBOutlet weak var progresTime: KDCircularProgress!
     @IBOutlet weak var heartsGiftLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
-    
-    @IBAction func firtsWord(_ sender: UIButton) {
-        checkMatch(sender:sender)
-    }
-    @IBAction func secondWord(_ sender: UIButton) {
-        checkMatch(sender:sender)
-    }
-    @IBAction func thirthWord(_ sender: UIButton) {
-        checkMatch(sender:sender)
-    }
-    @IBAction func fourthWord(_ sender: UIButton) {
-        checkMatch(sender:sender)
-    }
-    @IBAction func fifthWord(_ sender: UIButton) {
-        checkMatch(sender:sender)
-    }
-    @IBAction func sixthWord(_ sender: UIButton) {
-        checkMatch(sender:sender)
-    }
-    
-    
-    
+//    var rightContrain: NSLayoutConstraint!
+//
+//     var leftConstrain: NSLayoutConstraint!
+//
+    var sentenceWith:Double = 0.0
     var ortograficTagger = OrtograficTagger()
     var student:Student!
     var timer:Timer!
     var timerCounter:Int = 0
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -57,9 +46,22 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         updateView()
         newExercise()
         
+        
+        
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let label:UILabel = UILabel()
+//        label.text = "withText"
+//        label.font = UIFont(name: "HelveticaNeue", size:20)
+//        label.tintColor = .white
+//        label.textColor = .white
+//        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        
         // Do any additional setup after loading the view.
     }
     override func didReceiveMemoryWarning() {
@@ -108,6 +110,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         student.level.resetTild()
         scoreLabel.text = String(student.score)
         heartsGiftLabel.text = String(student.level.winerPoints)
+        
     }
     
     
@@ -133,15 +136,67 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     func fill(target:String) {
         exerciseTaskLabel.text = target
     }
-    func fill(sentence:String) {
-        var sentence =  sentence.components(separatedBy:" ")
-        firtsButton.setTitle(sentence[0], for:.normal)
-        secondButton.setTitle(sentence[1], for:.normal)
-        thirthButton.setTitle(sentence[2], for:.normal)
-        fourthButton.setTitle(sentence[3], for:.normal)
-        fifthButton.setTitle(sentence[4], for:.normal)
-        sixthButton.setTitle(sentence[5], for:.normal)
+    
+    
+    func addStackView(views:[UILabel],  letfConstrain:Double, rightConstrain:Double) {
+        
+        if stackSentences != nil {
+        stackSentences.removeFromSuperview()
+        }
+ 
+        stackSentences = UIStackView(arrangedSubviews:views)
+        stackSentences.axis = .horizontal
+        stackSentences.distribution = .fillProportionally
+        stackSentences.spacing = 3
+        stackSentences.alignment = .center
+        stackSentences.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(stackSentences)
+        stackSentences.leftAnchor.constraint(equalTo:view.leftAnchor, constant:CGFloat(letfConstrain)).isActive = true
+        stackSentences.rightAnchor.constraint(equalTo:view.rightAnchor, constant:CGFloat(rightConstrain)).isActive = true
+        stackSentences.topAnchor.constraint(equalTo:view.bottomAnchor, constant:-60).isActive = true
+        stackSentences.bottomAnchor.constraint(equalTo:view.bottomAnchor, constant:CGFloat(0.0)).isActive = true
     }
+    
+    
+    func fill(sentence:String) {
+        
+        sentenceWith = 0.0
+        var labels:[UILabel] = []
+        let sentence =  sentence.components(separatedBy:" ")
+        
+        for word in sentence {
+            labels.append(addLabel(withText:word))
+        }
+        
+        for label in labels {
+            sentenceWith += Double(label.frame.width)
+            print(label.frame.width)
+        }
+
+
+        let currentViewWith:Double = Double(view.frame.width)
+        let emptySpace:Double = currentViewWith - sentenceWith
+        let stackConstrain:Double = emptySpace / 2
+        print(stackConstrain)
+        
+        addStackView(views:labels ,  letfConstrain:stackConstrain/1.4 , rightConstrain:-stackConstrain/1.4)
+    }
+    
+    
+    
+    
+    func addLabel(withText:String) -> UILabel {
+        let label:UILabel = UILabel()
+        label.text = withText
+        label.font = UIFont(name: "HelveticaNeue", size:30)
+        label.tintColor = .white
+        label.textColor = .white
+        label.textAlignment = .center
+        label.sizeToFit()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }
+    
     
     
     func newExercise() {
@@ -177,12 +232,12 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     
     func resetButtonColors() {
-        firtsButton.setTitleColor(.blue, for:.normal)
-        secondButton.setTitleColor(.blue, for:.normal)
-        thirthButton.setTitleColor(.blue, for:.normal)
-        fourthButton.setTitleColor(.blue, for:.normal)
-        fifthButton.setTitleColor(.blue, for:.normal)
-        sixthButton.setTitleColor(.blue, for:.normal)
+//        firtsButton.setTitleColor(.blue, for:.normal)
+//        secondButton.setTitleColor(.blue, for:.normal)
+//        thirthButton.setTitleColor(.blue, for:.normal)
+//        fourthButton.setTitleColor(.blue, for:.normal)
+//        fifthButton.setTitleColor(.blue, for:.normal)
+//        sixthButton.setTitleColor(.blue, for:.normal)
     }
     
     
