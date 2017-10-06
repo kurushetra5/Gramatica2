@@ -13,24 +13,14 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     @IBOutlet weak var exerciseTaskLabel: UILabel!
     
-    
-//    @IBOutlet weak var firtsButton: UILabel!
-//    @IBOutlet weak var secondButton: UILabel!
-//    @IBOutlet weak var thirthButton: UILabel!
-//    @IBOutlet weak var fourthButton: UILabel!
-//    @IBOutlet weak var fifthButton: UILabel!
-//    @IBOutlet weak var sixthButton: UILabel!
-//
+ 
      var stackSentences: UIStackView!
     
     @IBOutlet weak var progresTime: KDCircularProgress!
     @IBOutlet weak var heartsGiftLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
-//    var rightContrain: NSLayoutConstraint!
-//
-//     var leftConstrain: NSLayoutConstraint!
-//
+ 
     var sentenceWith:Double = 0.0
     var ortograficTagger = OrtograficTagger()
     var student:Student!
@@ -52,17 +42,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        let label:UILabel = UILabel()
-//        label.text = "withText"
-//        label.font = UIFont(name: "HelveticaNeue", size:20)
-//        label.tintColor = .white
-//        label.textColor = .white
-//        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        
-        // Do any additional setup after loading the view.
+  
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -81,7 +61,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         
         timerCounter += 1
         if timerCounter == 10 {
-//            timerCounter = 0
+ 
             updateView()
             stopTimer()
             progresTime.stopAnimation()
@@ -122,11 +102,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         startTimerEvery(seconds:1.0)
         progresTime.animate(toAngle:360, duration:10) { (finish) in
             if finish == true {
-                //                OperationQueue.main.addOperation({
-//                 self.progresTime.stopAnimation()
-//                self.newExercise()
-                
-                //                })
+  
             }
             
         }
@@ -194,9 +170,20 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         label.textAlignment = .center
         label.sizeToFit()
         label.translatesAutoresizingMaskIntoConstraints = false
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        
+        label.addGestureRecognizer(tap)
+        label.isUserInteractionEnabled = true
+        
         return label
     }
     
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        let label:UILabel = sender.view as! UILabel
+        checkMatch(sender:label)
+    }
     
     
     func newExercise() {
@@ -207,11 +194,11 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     
     
-    func  checkMatch(sender:UIButton) {
+    func  checkMatch(sender:UILabel) {
         
-        if ortograficTagger.checkMatch(word:(sender.titleLabel?.text)!) {
+        if ortograficTagger.checkMatch(word:(sender.text)!) {
             print("Acierto")
-            sender.setTitleColor(.green, for:.normal)
+//            sender.setTitleColor(.green, for:.normal)
             stopTimer()
             progresTime.stopAnimation()
             student.win()
@@ -220,7 +207,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
             newExercise()
         }else {
             print("Error")
-            sender.setTitleColor(.red, for:.normal)
+//            sender.setTitleColor(.red, for:.normal)
              stopTimer()
              progresTime.stopAnimation()
                          sleep(UInt32(2.0))
@@ -232,12 +219,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     
     func resetButtonColors() {
-//        firtsButton.setTitleColor(.blue, for:.normal)
-//        secondButton.setTitleColor(.blue, for:.normal)
-//        thirthButton.setTitleColor(.blue, for:.normal)
-//        fourthButton.setTitleColor(.blue, for:.normal)
-//        fifthButton.setTitleColor(.blue, for:.normal)
-//        sixthButton.setTitleColor(.blue, for:.normal)
+ 
     }
     
     
