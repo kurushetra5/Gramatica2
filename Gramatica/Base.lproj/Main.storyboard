@@ -140,6 +140,8 @@
                     </view>
                     <connections>
                         <outlet property="exerciseTaskLabel" destination="8im-Zw-We2" id="LpI-Ym-nlc"/>
+                        <outlet property="heartPoints" destination="M1A-ig-u89" id="ELz-9k-1ML"/>
+                        <outlet property="heartTimer" destination="i6d-TX-LBg" id="MF5-qG-CIm"/>
                         <outlet property="heartsGiftLabel" destination="7mn-JK-2ip" id="7P7-Re-CYD"/>
                         <outlet property="progresTime" destination="Etm-PX-9Oh" id="IYZ-v1-znG"/>
                         <outlet property="scoreLabel" destination="9OK-QC-kya" id="wsr-c4-HUj"/>
@@ -147,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Afv-AQ-l1F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-275" y="2"/>
+            <point key="canvasLocation" x="-268" y="2"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OAc-k9-CvP">

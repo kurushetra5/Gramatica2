@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class SentencesViewC: UIViewController,ExerciseDelegate {
     
@@ -20,7 +21,9 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     @IBOutlet weak var heartsGiftLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
- 
+    @IBOutlet weak var heartTimer: UIImageView!
+    @IBOutlet weak var heartPoints: UIImageView!
+    
     var sentenceWith:Double = 0.0
     var ortograficTagger = OrtograficTagger()
     var student:Student!
@@ -69,6 +72,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         }else if timerCounter == 5 || timerCounter == 8 {
             student.level.tildForTime()
             heartsGiftLabel.text = String(student.level.winerPoints)
+            animationTild()
             
         }
         
@@ -200,20 +204,24 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
             print("Acierto")
              sender.textColor = .green
             stopTimer()
-            progresTime.stopAnimation()
+             progresTime.stopAnimation()
             student.win()
-            student.level.resetTild()
-             updateView()
-             newExercise()
+             student.level.resetTild()
+            updateView()
+//             animationWinPoints()
+             animationMatch()
+            
+            
         }else {
             print("Error")
              sender.textColor = .red
-             stopTimer()
-             progresTime.stopAnimation()
-            
+//             stopTimer()
+//             progresTime.stopAnimation()
+            animationFail()
 //             updateView()
 //              newExercise()
 //            sleep(UInt32(2.0))
+            
         }
         
     }
@@ -224,6 +232,102 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     func resetButtonColors() {
  
     }
+    
+    
+    func sound(forAction:Int) { //        1006 1016
+        let systemSoundId: SystemSoundID = SystemSoundID(forAction)
+        AudioServicesPlaySystemSound(systemSoundId)
+    }
+    
+    
+    func animationTild() {
+        animationHeartBeat()
+//        let animator = UIViewPropertyAnimator(duration: 0.3, curve:.easeInOut)
+//        animator.addAnimations {
+//            self.heartTimer.layer.opacity = 0.0
+//
+//        }
+//
+//        animator.addCompletion { (position) in
+//            self.heartTimer.layer.opacity = 1.0
+//
+//        }
+//        animator.startAnimation()
+     }
+    
+    func animationFail() {
+        sound(forAction:1114)
+ 
+        
+        let animator = UIViewPropertyAnimator(duration: 0.3, curve:.easeInOut)
+        animator.addAnimations {
+          self.heartTimer.layer.opacity = 0.0
+          self.progresTime.progressInsideFillColor = .red
+        }
+        
+        animator.addCompletion { (position) in
+            self.heartTimer.layer.opacity = 1.0
+            self.progresTime.progressInsideFillColor = .black
+        }
+        animator.startAnimation()
+    }
+    
+    
+     func animationHeartBeat() {
+        sound(forAction:1306)
+    
+        
+        UIView.animate(withDuration: 0.2, delay: 0.0, options:
+            UIViewAnimationOptions(rawValue: UIViewAnimationOptions.autoreverse.rawValue)  , animations: {
+                
+                self.heartTimer.transform = CGAffineTransform(scaleX: 1.2, y: 1.1)
+        }, completion: { finished in
+            self.heartTimer.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        })
+        
+    }
+    
+    
+    func animationMatch() {
+         sound(forAction:1057)
+        
+        let animator = UIViewPropertyAnimator(duration:0.5, curve:.linear)
+        animator.addAnimations {
+              self.heartTimer.layer.opacity = 0.0
+            self.progresTime.progressInsideFillColor = .green
+        }
+    
+        animator.addCompletion { (position) in
+              self.heartTimer.layer.opacity = 1.0
+            
+            self.progresTime.progressInsideFillColor = .black
+//            self.stopTimer()
+//            self.progresTime.stopAnimation()
+//            self.student.win()
+//            self.student.level.resetTild()
+//            self.updateView()
+            self.animationWinPoints()
+            self.newExercise()
+            
+        }
+        animator.startAnimation()
+    }
+    
+    func animationWinPoints() {
+        
+        
+        let animator = UIViewPropertyAnimator(duration:0.3, curve:.easeInOut)
+        animator.addAnimations {
+            self.heartPoints.layer.opacity = 0.0
+        }
+        
+        animator.addCompletion { (position) in
+             self.heartPoints.layer.opacity = 1.0
+            
+        }
+        animator.startAnimation()
+    }
+    
     
     
     /*

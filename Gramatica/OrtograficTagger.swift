@@ -50,14 +50,14 @@ class OrtograficTagger {
         
         do {
             let text = try String(contentsOf:url, encoding: .utf8)
-            var sentences = tagText(text:text)
+            let sentences = tagText(text:text)
             
               print(validSentences.count)
             
             
             for sentence in sentences {
                 
-                var words = sentence.components(separatedBy:" ")
+                let words = sentence.components(separatedBy:" ")
 //                var niceSentence = sentence.replacingOccurrences(of:"", with:"")
                 
                 
@@ -114,12 +114,6 @@ class OrtograficTagger {
             match = true
         }
     }
-    
-//        if word == sentenceTagged[lookedTarget] {
-//           return true
-//        }else {
-//           return false
-//        }
     return match
     }
     
