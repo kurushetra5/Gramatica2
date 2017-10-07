@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioToolbox
+import SpriteKit
 
 class SentencesViewC: UIViewController,ExerciseDelegate {
     
@@ -187,11 +188,18 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         let label:UILabel = sender.view as! UILabel
         checkMatch(sender:label)
+        
+//        if let particles = SKEmitterNode(fileNamed: "MyParticle.sks") {
+//            particles.position = label.layer.position
+//
+//        }
     }
     
     
     func newExercise() {
         ortograficTagger.newExercise()
+        sound(forAction:1016)
+        
     }
     
     

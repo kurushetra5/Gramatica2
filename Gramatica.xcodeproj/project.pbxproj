@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		611C3D211F897BC900C7370C /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 611C3D201F897BC900C7370C /* MyParticle.sks */; };
 		6122431A1F884E8F00B09165 /* Frases.txt in Resources */ = {isa = PBXBuildFile; fileRef = 612243181F884E8500B09165 /* Frases.txt */; };
 		6122431B1F884E9200B09165 /* Texto2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 612243191F884E8500B09165 /* Texto2.txt */; };
 		6122431D1F8851C400B09165 /* textos.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6122431C1F8851C100B09165 /* textos.txt */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		611C3D201F897BC900C7370C /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
 		612243181F884E8500B09165 /* Frases.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Frases.txt; sourceTree = "<group>"; };
 		612243191F884E8500B09165 /* Texto2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Texto2.txt; sourceTree = "<group>"; };
 		6122431C1F8851C100B09165 /* textos.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = textos.txt; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				6182077F1F8446EF00D2BA9C /* Info.plist */,
 				61D2DB1B1F85A3B200D7C4B3 /* Student.swift */,
 				61D2DB1D1F85A45800D7C4B3 /* Level.swift */,
+				611C3D201F897BC900C7370C /* MyParticle.sks */,
 			);
 			path = Gramatica;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				6197DD461F882572001393A9 /* Libro1.txt in Resources */,
 				6182077B1F8446EF00D2BA9C /* Assets.xcassets in Resources */,
 				618207791F8446EF00D2BA9C /* Main.storyboard in Resources */,
+				611C3D211F897BC900C7370C /* MyParticle.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
