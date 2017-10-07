@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6122431A1F884E8F00B09165 /* Frases.txt in Resources */ = {isa = PBXBuildFile; fileRef = 612243181F884E8500B09165 /* Frases.txt */; };
+		6122431B1F884E9200B09165 /* Texto2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 612243191F884E8500B09165 /* Texto2.txt */; };
+		6122431D1F8851C400B09165 /* textos.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6122431C1F8851C100B09165 /* textos.txt */; };
 		6149B9CB1F8457C6003DC6A7 /* OrtograficTagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6149B9CA1F8457C6003DC6A7 /* OrtograficTagger.swift */; };
 		618207741F8446EF00D2BA9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618207731F8446EF00D2BA9C /* AppDelegate.swift */; };
 		618207761F8446EF00D2BA9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618207751F8446EF00D2BA9C /* ViewController.swift */; };
@@ -16,6 +19,7 @@
 		618207891F8446EF00D2BA9C /* GramaticaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618207881F8446EF00D2BA9C /* GramaticaTests.swift */; };
 		618207941F8446F000D2BA9C /* GramaticaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618207931F8446F000D2BA9C /* GramaticaUITests.swift */; };
 		618207A41F8453FD00D2BA9C /* SentencesViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618207A31F8453FD00D2BA9C /* SentencesViewC.swift */; };
+		6197DD461F882572001393A9 /* Libro1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6197DD451F882129001393A9 /* Libro1.txt */; };
 		61D2DB1A1F8581A900D7C4B3 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2DB191F8581A900D7C4B3 /* KDCircularProgress.swift */; };
 		61D2DB1C1F85A3B200D7C4B3 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2DB1B1F85A3B200D7C4B3 /* Student.swift */; };
 		61D2DB1E1F85A45800D7C4B3 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2DB1D1F85A45800D7C4B3 /* Level.swift */; };
@@ -39,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		612243181F884E8500B09165 /* Frases.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Frases.txt; sourceTree = "<group>"; };
+		612243191F884E8500B09165 /* Texto2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Texto2.txt; sourceTree = "<group>"; };
+		6122431C1F8851C100B09165 /* textos.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = textos.txt; sourceTree = "<group>"; };
 		6149B9CA1F8457C6003DC6A7 /* OrtograficTagger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrtograficTagger.swift; sourceTree = "<group>"; };
 		618207701F8446EF00D2BA9C /* Gramatica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gramatica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		618207731F8446EF00D2BA9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +61,7 @@
 		618207931F8446F000D2BA9C /* GramaticaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GramaticaUITests.swift; sourceTree = "<group>"; };
 		618207951F8446F000D2BA9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		618207A31F8453FD00D2BA9C /* SentencesViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentencesViewC.swift; sourceTree = "<group>"; };
+		6197DD451F882129001393A9 /* Libro1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Libro1.txt; sourceTree = "<group>"; };
 		61D2DB171F85681F00D7C4B3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		61D2DB181F85681F00D7C4B3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		61D2DB191F8581A900D7C4B3 /* KDCircularProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
@@ -89,6 +97,10 @@
 		618207671F8446EF00D2BA9C = {
 			isa = PBXGroup;
 			children = (
+				6122431C1F8851C100B09165 /* textos.txt */,
+				6197DD451F882129001393A9 /* Libro1.txt */,
+				612243181F884E8500B09165 /* Frases.txt */,
+				612243191F884E8500B09165 /* Texto2.txt */,
 				618207721F8446EF00D2BA9C /* Gramatica */,
 				618207871F8446EF00D2BA9C /* GramaticaTests */,
 				618207921F8446F000D2BA9C /* GramaticaUITests */,
@@ -249,7 +261,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6122431A1F884E8F00B09165 /* Frases.txt in Resources */,
 				6182077E1F8446EF00D2BA9C /* LaunchScreen.storyboard in Resources */,
+				6122431B1F884E9200B09165 /* Texto2.txt in Resources */,
+				6122431D1F8851C400B09165 /* textos.txt in Resources */,
+				6197DD461F882572001393A9 /* Libro1.txt in Resources */,
 				6182077B1F8446EF00D2BA9C /* Assets.xcassets in Resources */,
 				618207791F8446EF00D2BA9C /* Main.storyboard in Resources */,
 			);

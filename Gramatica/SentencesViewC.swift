@@ -123,12 +123,12 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         stackSentences = UIStackView(arrangedSubviews:views)
         stackSentences.axis = .horizontal
         stackSentences.distribution = .fillProportionally
-        stackSentences.spacing = 3
+        stackSentences.spacing = 4
         stackSentences.alignment = .center
         stackSentences.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackSentences)
-        stackSentences.leftAnchor.constraint(equalTo:view.leftAnchor, constant:CGFloat(letfConstrain)).isActive = true
-        stackSentences.rightAnchor.constraint(equalTo:view.rightAnchor, constant:CGFloat(rightConstrain)).isActive = true
+        stackSentences.leftAnchor.constraint(equalTo:view.leftAnchor, constant:CGFloat(0)).isActive = true
+        stackSentences.rightAnchor.constraint(equalTo:view.rightAnchor, constant:CGFloat(0)).isActive = true
         stackSentences.topAnchor.constraint(equalTo:view.bottomAnchor, constant:-60).isActive = true
         stackSentences.bottomAnchor.constraint(equalTo:view.bottomAnchor, constant:CGFloat(0.0)).isActive = true
     }
@@ -164,13 +164,13 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     func addLabel(withText:String) -> UILabel {
         let label:UILabel = UILabel()
         label.text = withText
-        label.font = UIFont(name: "HelveticaNeue", size:30)
+        label.font = UIFont(name: "HelveticaNeue", size:35)
         label.tintColor = .white
         label.textColor = .white
         label.textAlignment = .center
-        label.sizeToFit()
+//        label.sizeToFit()
         label.translatesAutoresizingMaskIntoConstraints = false
-        
+        label.adjustsFontSizeToFitWidth = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         
         label.addGestureRecognizer(tap)
@@ -198,24 +198,27 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         
         if ortograficTagger.checkMatch(word:(sender.text)!) {
             print("Acierto")
-//            sender.setTitleColor(.green, for:.normal)
+             sender.textColor = .green
             stopTimer()
             progresTime.stopAnimation()
             student.win()
             student.level.resetTild()
-            updateView()
-            newExercise()
+             updateView()
+             newExercise()
         }else {
             print("Error")
-//            sender.setTitleColor(.red, for:.normal)
+             sender.textColor = .red
              stopTimer()
              progresTime.stopAnimation()
-                         sleep(UInt32(2.0))
-            updateView()
-             newExercise()
+            
+//             updateView()
+//              newExercise()
+//            sleep(UInt32(2.0))
         }
         
     }
+    
+    
     
     
     func resetButtonColors() {
