@@ -28,8 +28,17 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     @IBOutlet weak var alertTwo: UIImageView!
     
     @IBAction func pauseOrPlayButton(_ sender: UIBarButtonItem) {
-        stopTimer()
-        progresTime.stopAnimation()
+        
+        if sender.title == "PAUSE" {
+            stopTimer()
+            progresTime.stopAnimation()
+            invalidateLabels()
+            sender.title = "PLAY"
+        }else if sender.title == "PLAY" {
+            sender.title = "PAUSE"
+            validateLabels()
+            newExercise()
+        }
     }
     
     
@@ -39,7 +48,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     var timer:Timer!
     var timerCounter:Int = 0
     var failedTimes:Int = 0
-    
+    var labels:[UILabel] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -99,8 +108,17 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     }
     
     
+    func invalidateLabels() {
+        for label in labels {
+            label.isUserInteractionEnabled = false
+        }
+    }
     
-    
+    func  validateLabels() {
+        for label in labels {
+            label.isUserInteractionEnabled = true
+        }
+    }
     
     
     func updateView() {
@@ -158,8 +176,10 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     func fill(sentence:String) {
         
+        labels = []
+        
         sentenceWith = 0.0
-        var labels:[UILabel] = []
+       
         let sentence =  sentence.components(separatedBy:" ")
         
         for word in sentence {
@@ -204,6 +224,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         let label:UILabel = sender.view as! UILabel
+        label.isUserInteractionEnabled = false
         checkMatch(sender:label)
         
 //        if let particles = SKEmitterNode(fileNamed: "MyParticle.sks") {
@@ -214,12 +235,13 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     
     func newExercise() {
+        
         ortograficTagger.newExercise()
         sound(forAction:1016)
         
     }
     
-    
+  
     
     
     
