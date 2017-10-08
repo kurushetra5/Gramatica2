@@ -15,6 +15,7 @@ protocol ExerciseDelegate {
 
 enum WordType:String {
     case Verb = "Verb",Noun = "Noun" , Adjective = "Adjective" ,Adverb = "Adverb", Pronoun = "Pronoun",Determiner = "Determiner", Particle = "Particle",Preposition = "Preposition", Number = "Number" ,Conjunction = "Conjunction",Interjection = "Interjection",Classifier = "Classifier", Idiom = "Idiom",OtherWord = "OtherWord",SentenceTerminator = "SentenceTerminator", OpenQuote = "OpenQuote",CloseQuote = "CloseQuote",OpenParenthesis = "OpenParenthesis",CloseParenthesis = "CloseParenthesis",WordJoiner = "WordJoiner",Dash = "Dash",OtherPunctuation = "OtherPunctuation",ParagraphBreak = "ParagraphBreak",OtherWhitespace = "OtherWhitespace"
+    
 }
 
 

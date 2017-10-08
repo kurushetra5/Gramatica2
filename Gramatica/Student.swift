@@ -7,15 +7,24 @@
 //
 
 import Foundation
+import UIKit
 
 
 class Student {
     
     var name:String!
+    var image:UIImage!
     var score:Int = 0
     var level:Level = Level()
     var rank:Rank = Rank()
     
+    var studentImage:UIImage {
+        if image == nil {
+           return #imageLiteral(resourceName: "noavatar")
+        }else {
+            return image
+        }
+    }
     
     init(name:String) {
         self.name = name
@@ -25,12 +34,13 @@ class Student {
         return level.actualLevel
     }
     
+    
     func win(target:WordType) {
         score += level.winerPoints
         rank.addRank(wordType:target, to:"win")
-//        rank.verbs.results.addWin()
-//       print(rank.verbs.results.win)
+        
     }
+    
     
     func lose(target:WordType) {
          rank.addRank(wordType:target, to:"lose")
