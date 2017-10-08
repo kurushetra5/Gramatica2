@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		610F34BD1F89A6DC003DACB8 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610F34BC1F89A6DC003DACB8 /* Rank.swift */; };
 		611C3D211F897BC900C7370C /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 611C3D201F897BC900C7370C /* MyParticle.sks */; };
 		6122431A1F884E8F00B09165 /* Frases.txt in Resources */ = {isa = PBXBuildFile; fileRef = 612243181F884E8500B09165 /* Frases.txt */; };
 		6122431B1F884E9200B09165 /* Texto2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 612243191F884E8500B09165 /* Texto2.txt */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		610F34BC1F89A6DC003DACB8 /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		611C3D201F897BC900C7370C /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
 		612243181F884E8500B09165 /* Frases.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Frases.txt; sourceTree = "<group>"; };
 		612243191F884E8500B09165 /* Texto2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Texto2.txt; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				61D2DB1B1F85A3B200D7C4B3 /* Student.swift */,
 				61D2DB1D1F85A45800D7C4B3 /* Level.swift */,
 				611C3D201F897BC900C7370C /* MyParticle.sks */,
+				610F34BC1F89A6DC003DACB8 /* Rank.swift */,
 			);
 			path = Gramatica;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				61D2DB1C1F85A3B200D7C4B3 /* Student.swift in Sources */,
 				61D2DB1A1F8581A900D7C4B3 /* KDCircularProgress.swift in Sources */,
 				618207741F8446EF00D2BA9C /* AppDelegate.swift in Sources */,
+				610F34BD1F89A6DC003DACB8 /* Rank.swift in Sources */,
 				618207A41F8453FD00D2BA9C /* SentencesViewC.swift in Sources */,
 				6149B9CB1F8457C6003DC6A7 /* OrtograficTagger.swift in Sources */,
 			);

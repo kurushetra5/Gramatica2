@@ -24,17 +24,26 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     @IBOutlet weak var heartTimer: UIImageView!
     @IBOutlet weak var heartPoints: UIImageView!
+    @IBOutlet weak var alertOne: UIImageView!
+    @IBOutlet weak var alertTwo: UIImageView!
+    
+    @IBAction func pauseOrPlayButton(_ sender: UIBarButtonItem) {
+        stopTimer()
+        progresTime.stopAnimation()
+    }
+    
     
     var sentenceWith:Double = 0.0
     var ortograficTagger = OrtograficTagger()
     var student:Student!
     var timer:Timer!
     var timerCounter:Int = 0
-    
+    var failedTimes:Int = 0
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        hideFailedAlerts()
         ortograficTagger.exerciseDelegate = self
         student = Student(name:"Luis")
         updateView()
@@ -53,7 +62,10 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    func hideFailedAlerts() {
+        alertOne.alpha = 0.0
+        alertTwo.alpha = 0.0
+    }
     
     
     func startTimerEvery(seconds:Double) {
@@ -115,17 +127,21 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     
     func fill(target:String) {
-        exerciseTaskLabel.text = target
+        textTransitionFade(text:target)
+//        exerciseTaskLabel.text = target
     }
     
     
     func addStackView(views:[UILabel],  letfConstrain:Double, rightConstrain:Double) {
         
         if stackSentences != nil {
-        stackSentences.removeFromSuperview()
+//        stackSentences.removeFromSuperview()
+            stackViewOffAnimation()
+             self.stackSentences.removeFromSuperview()
         }
  
         stackSentences = UIStackView(arrangedSubviews:views)
+        stackSentences.alpha = 0.0
         stackSentences.axis = .horizontal
         stackSentences.distribution = .fillProportionally
         stackSentences.spacing = 4
@@ -134,8 +150,9 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         view.addSubview(stackSentences)
         stackSentences.leftAnchor.constraint(equalTo:view.leftAnchor, constant:CGFloat(0)).isActive = true
         stackSentences.rightAnchor.constraint(equalTo:view.rightAnchor, constant:CGFloat(0)).isActive = true
-        stackSentences.topAnchor.constraint(equalTo:view.bottomAnchor, constant:-60).isActive = true
+        stackSentences.topAnchor.constraint(equalTo:view.bottomAnchor, constant:-70).isActive = true
         stackSentences.bottomAnchor.constraint(equalTo:view.bottomAnchor, constant:CGFloat(0.0)).isActive = true
+        stackViewOnAnimation()
     }
     
     
@@ -211,9 +228,10 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         if ortograficTagger.checkMatch(word:(sender.text)!) {
             print("Acierto")
              sender.textColor = .green
+             hideFailedAlerts()
             stopTimer()
              progresTime.stopAnimation()
-            student.win()
+            student.win(target:ortograficTagger.target)
              student.level.resetTild()
             updateView()
 //             animationWinPoints()
@@ -223,17 +241,88 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         }else {
             print("Error")
              sender.textColor = .red
-//             stopTimer()
-//             progresTime.stopAnimation()
+ 
             animationFail()
+            failedTimes += 1
 //             updateView()
 //              newExercise()
 //            sleep(UInt32(2.0))
+            if self.failedTimes == 1 {
+                showFailAlerts(number:1)
+            }else if self.failedTimes == 2 {
+                showFailAlerts(number:2)
+            }else if self.failedTimes == 3 {
+                 sound(forAction:1024)
+                sleep(UInt32(1.0))
+                self.failedTimes = 0
+                hideFailedAlerts()
+               stopTimer()
+              progresTime.stopAnimation()
+                updateView()
+                newExercise()
+                
+            }
             
         }
         
     }
     
+    
+    
+    func textTransitionFade(text:String) {
+        
+        UIView.transition(with: exerciseTaskLabel,
+                          duration: 0.5,
+                          options: .transitionCrossDissolve,
+                          animations: { [weak self] in
+                            self?.exerciseTaskLabel.text = text
+            }, completion: nil)
+    }
+    
+    
+    func showFailAlerts(number:Int) {
+        
+        let animator = UIViewPropertyAnimator(duration: 0.3, curve:.easeInOut)
+        animator.addAnimations {
+            
+            if number == 1 {
+            self.alertOne.alpha = 1.0
+            }
+            if number == 2 {
+                self.alertTwo.alpha = 1.0
+            }
+        }
+        
+//        animator.addCompletion { (position) in
+//
+//        }
+        animator.startAnimation()
+    }
+    
+    func stackViewOnAnimation() {
+        
+        let animator = UIViewPropertyAnimator(duration: 1.8, curve:.easeInOut)
+        animator.addAnimations {
+            self.stackSentences.alpha = 1.0
+            
+        }
+        
+        
+        animator.startAnimation()
+    }
+    
+    
+    func stackViewOffAnimation() {
+        
+        let animator = UIViewPropertyAnimator(duration: 1.8, curve:.easeInOut)
+        animator.addAnimations {
+            
+            self.stackSentences.alpha = 0.0
+        }
+        
+        
+        animator.startAnimation()
+    }
     
     
     
@@ -266,6 +355,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     func animationFail() {
         sound(forAction:1114)
  
+        
         
         let animator = UIViewPropertyAnimator(duration: 0.3, curve:.easeInOut)
         animator.addAnimations {

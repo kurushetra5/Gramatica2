@@ -26,6 +26,7 @@ class OrtograficTagger {
     var sentenceWords2:[String] = ["No me mires con esa cara tan triste, Jorge","Ella y yo ya te dijimos que nadie debía salir de la clase","Sonrío pero desapareció sin decirnos nada"]
 //   var sentenceWords2:[String] = ["David is running so far away from here","Paul is drinking a big bear in the bar","This is a very new app from luis sintes estevez"]
     var lookedTarget = "Verb"
+    var target:WordType!
     
      var targets:[String] = ["Verb","Noun" ,"Adjective","Adverb","Pronoun"]
 //      var targets:[String] = ["Verb"]
@@ -176,10 +177,14 @@ class OrtograficTagger {
     
     func chooseType(forTag tag:String) -> String {
         print(tag)
+        
+        target = WordType(rawValue:tag)
         switch tag {
         case  WordType.Verb.rawValue:
+            
            return "Verbo"
         case  WordType.Adjective.rawValue:
+           
             return "Adjetivo"
         case  WordType.Adverb.rawValue:
             return "Adverbio"

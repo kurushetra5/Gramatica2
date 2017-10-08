@@ -47,30 +47,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lMP-vS-Jr8">
-                                <rect key="frame" x="501" y="108" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart-png-15" translatesAutoresizingMaskIntoConstraints="NO" id="M1A-ig-u89">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="23" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9OK-QC-kya">
-                                        <rect key="frame" x="0.0" y="11" width="49" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Etm-PX-9Oh" customClass="KDCircularProgress" customModule="Gramatica" customModuleProvider="target">
                                 <rect key="frame" x="184" y="72" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart-png-15" translatesAutoresizingMaskIntoConstraints="NO" id="i6d-TX-LBg">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="i6d-TX-LBg">
                                         <rect key="frame" x="55" y="57" width="90" height="92"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -122,23 +103,54 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clockwise" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the Verb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8im-Zw-We2">
-                                <rect key="frame" x="0.0" y="32" width="568" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the Verb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8im-Zw-We2">
+                                <rect key="frame" x="0.0" y="44" width="568" height="38.5"/>
                                 <viewLayoutGuide key="safeArea" id="m1h-3D-bLN"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="M1A-ig-u89">
+                                <rect key="frame" x="485" y="147" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="23" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9OK-QC-kya">
+                                <rect key="frame" x="485" y="158" width="49" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sign-Alert-icon" translatesAutoresizingMaskIntoConstraints="NO" id="UI3-1Y-KtP">
+                                <rect key="frame" x="39" y="147" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sign-Alert-icon" translatesAutoresizingMaskIntoConstraints="NO" id="4n7-y7-yUH">
+                                <rect key="frame" x="105" y="147" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8im-Zw-We2" firstAttribute="leading" secondItem="cbg-Q7-I8f" secondAttribute="leading" id="lRp-Bo-ywv"/>
                             <constraint firstItem="8im-Zw-We2" firstAttribute="trailing" secondItem="cbg-Q7-I8f" secondAttribute="trailing" id="pZJ-3N-r7M"/>
-                            <constraint firstItem="8im-Zw-We2" firstAttribute="top" secondItem="cbg-Q7-I8f" secondAttribute="top" id="yD9-Kz-e7T"/>
+                            <constraint firstItem="8im-Zw-We2" firstAttribute="top" secondItem="cbg-Q7-I8f" secondAttribute="top" constant="12" id="yD9-Kz-e7T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cbg-Q7-I8f"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="Ne0-cs-oPv">
+                        <barButtonItem key="rightBarButtonItem" title="Pause" id="AuM-YB-Js9">
+                            <connections>
+                                <action selector="pauseOrPlayButton:" destination="GZJ-Ur-4F4" id="bTx-Nm-VlO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="alertOne" destination="UI3-1Y-KtP" id="xhg-8q-q5N"/>
+                        <outlet property="alertTwo" destination="4n7-y7-yUH" id="Gw9-pW-yZf"/>
                         <outlet property="exerciseTaskLabel" destination="8im-Zw-We2" id="LpI-Ym-nlc"/>
                         <outlet property="heartPoints" destination="M1A-ig-u89" id="ELz-9k-1ML"/>
                         <outlet property="heartTimer" destination="i6d-TX-LBg" id="MF5-qG-CIm"/>
@@ -149,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Afv-AQ-l1F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-268" y="2"/>
+            <point key="canvasLocation" x="-257" y="2"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OAc-k9-CvP">
@@ -171,6 +183,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="heart-png-15" width="2000" height="1814"/>
+        <image name="Sign-Alert-icon" width="256" height="256"/>
+        <image name="heart" width="512" height="471"/>
     </resources>
 </document>
