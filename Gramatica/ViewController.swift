@@ -22,10 +22,43 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     var students:[Student] = []
     
+    var dictDefaults:[String : Any] {
+        
+           let defaults = UserDefaults.standard
+        
+        if let  keppedStudents:[String : Any] = defaults.dictionary(forKey:"Students") {
+            
+            let student:Student = Student(name:keppedStudents["Name"] as! String)
+            student.level.actualLevel = keppedStudents["Level"] as! Int
+            student.score = keppedStudents["Score"] as! Int
+            students.append(student)
+            return keppedStudents
+        }else {
+          
+            let dict:[String : Any] = [:]
+            defaults.set(dict, forKey: "Students")
+            return dict
+        }
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
-//        students =
+        
+        
+         let defaults = UserDefaults.standard
+        
+        if let  keppedStudents:[String : Any] = defaults.dictionary(forKey:"Student") {
+            
+            let student:Student = Student(name:keppedStudents["Name"] as! String)
+            student.level.actualLevel = keppedStudents["Level"] as! Int
+            student.score = keppedStudents["Score"] as! Int
+            students.append(student)
+        }
+        
+        
+        
+        
     }
     
     
@@ -41,6 +74,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
     
     
+    
     func createNewStudent() {
         var userIdTextField: UITextField?
         let dialogMessage = UIAlertController(title: "NUEVO ESTUDIANTE", message: "Escribe tu nombre", preferredStyle: .alert)
@@ -50,7 +84,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 let student:Student = Student(name:userInput)
                 self.students.append(student)
                 self.tableViewStudents.reloadData()
-//                print("User entered \(userInput)")
+                
+                
+                let defaults = UserDefaults.standard
+                let dict:[String : Any] = ["Name":student.name  , "Level":student.actualLevel,"Score":student.score]
+                defaults.set(dict, forKey: "Student")
+                
+                
+ 
             }
         })
         
