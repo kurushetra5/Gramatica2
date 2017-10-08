@@ -9,9 +9,12 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    
 
     
+    @IBOutlet weak var tableViewStudents: UITableView!
     
     
     
@@ -26,6 +29,24 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "studentCell", for: indexPath)
+        cell.textLabel?.text = "Luis Sintes"
+        cell.detailTextLabel?.text = "234"
+        cell.imageView?.image =  #imageLiteral(resourceName: "heart")
+        return cell
+    }
+    
+    
+    
+    
 
 }
 

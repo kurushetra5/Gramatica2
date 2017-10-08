@@ -50,6 +50,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     var failedTimes:Int = 0
     var labels:[UILabel] = []
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hideFailedAlerts()
@@ -58,10 +59,14 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         updateView()
         newExercise()
         
-        
-        
-        
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopTimer()
+        progresTime.stopAnimation()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
   
@@ -86,8 +91,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         
         timerCounter += 1
         if timerCounter == 10 {
- 
-            updateView()
+           updateView()
             stopTimer()
             progresTime.stopAnimation()
             newExercise()
@@ -450,14 +454,13 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
+//     // MARK: - Navigation
+//
+//     // In a storyboard-based application, you will often want to do a little preparation before navigation
+//     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//     }
+    
     
 }
