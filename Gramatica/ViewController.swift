@@ -22,43 +22,53 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     var students:[Student] = []
     
-    var dictDefaults:[String : Any] {
+    var dictDefaults:[String : Any] = [:]
+//    {
+    
+//        set {
+//            print("")
+//        } get {
+//        let defaults = UserDefaults.standard
+//
+//        if let  keppedStudents:[String : Any] = defaults.dictionary(forKey:"Students") {
+//           return keppedStudents
+//        }else {
+//
+//        let dict:[String : Any] = [:]
+//        defaults.set(dict, forKey: "Students")
+//        return dict
+//        }
+//        }
+//
+//
+//    }
+    
+    func checkDefaults() {
         
-           let defaults = UserDefaults.standard
+        let defaults = UserDefaults.standard
         
         if let  keppedStudents:[String : Any] = defaults.dictionary(forKey:"Students") {
-            
-            let student:Student = Student(name:keppedStudents["Name"] as! String)
-            student.level.actualLevel = keppedStudents["Level"] as! Int
-            student.score = keppedStudents["Score"] as! Int
-            students.append(student)
-            return keppedStudents
+           dictDefaults = keppedStudents
         }else {
-          
+            
             let dict:[String : Any] = [:]
             defaults.set(dict, forKey: "Students")
-            return dict
-        }
+           dictDefaults = dict
+    }
     }
     
-    
+        
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
-        
-        
-         let defaults = UserDefaults.standard
-        
-        if let  keppedStudents:[String : Any] = defaults.dictionary(forKey:"Student") {
-            
-            let student:Student = Student(name:keppedStudents["Name"] as! String)
-            student.level.actualLevel = keppedStudents["Level"] as! Int
-            student.score = keppedStudents["Score"] as! Int
-            students.append(student)
-        }
-        
-        
-        
-        
+        checkDefaults()
+    for (key,value) in dictDefaults {
+                
+                let student:Student = Student(name:key)
+                let dict:[String : Any] = value as! [String : Any]
+                student.level.actualLevel = dict["Level"] as! Int
+                student.score = dict["Score"] as! Int
+                students.append(student)
+            }
     }
     
     
@@ -88,7 +98,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 
                 let defaults = UserDefaults.standard
                 let dict:[String : Any] = ["Name":student.name  , "Level":student.actualLevel,"Score":student.score]
-                defaults.set(dict, forKey: "Student")
+                self.dictDefaults[student.name] = dict
+                defaults.set(self.dictDefaults, forKey:"Students")
+                defaults.synchronize()
                 
                 
  
