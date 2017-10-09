@@ -55,7 +55,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         super.viewWillAppear(animated)
         hideFailedAlerts()
         ortograficTagger.exerciseDelegate = self
-        student = Student(name:"Luis")
+//        student = Student(name:"Luis")
         updateView()
         newExercise()
         
@@ -65,6 +65,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         super.viewWillDisappear(animated)
         stopTimer()
         progresTime.stopAnimation()
+        student.keepRank()
     }
     
     override func viewDidLoad() {
@@ -284,6 +285,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
                 hideFailedAlerts()
                stopTimer()
               progresTime.stopAnimation()
+                 student.lose(target:ortograficTagger.target)
                 updateView()
                 newExercise()
                 

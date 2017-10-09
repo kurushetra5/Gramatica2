@@ -37,9 +37,9 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Luis Sintes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="miZ-bf-MrI">
-                                                    <rect key="frame" x="72" y="0.0" width="332" height="72"/>
+                                                    <rect key="frame" x="72" y="0.0" width="185" height="72"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="332" id="1HQ-WO-WhG"/>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="332" id="1HQ-WO-WhG"/>
                                                         <constraint firstAttribute="height" constant="72" id="uqQ-Mw-dk0"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="40"/>
@@ -71,7 +71,7 @@
                                                 <constraint firstItem="kA2-N5-9tP" firstAttribute="top" secondItem="clQ-Qj-O4h" secondAttribute="top" id="D5W-Ok-zbL"/>
                                                 <constraint firstAttribute="bottom" secondItem="miZ-bf-MrI" secondAttribute="bottom" id="L16-ix-GdC"/>
                                                 <constraint firstItem="miZ-bf-MrI" firstAttribute="leading" secondItem="kA2-N5-9tP" secondAttribute="trailing" id="LMQ-EM-YCG"/>
-                                                <constraint firstItem="miZ-bf-MrI" firstAttribute="leading" secondItem="kA2-N5-9tP" secondAttribute="trailing" id="tok-cm-xET"/>
+                                                <constraint firstAttribute="trailing" secondItem="miZ-bf-MrI" secondAttribute="trailing" constant="311" id="vao-xA-hu8"/>
                                                 <constraint firstItem="kA2-N5-9tP" firstAttribute="leading" secondItem="clQ-Qj-O4h" secondAttribute="leading" id="wBM-T0-65j"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -81,7 +81,7 @@
                                             <outlet property="studentLevel" destination="xxw-wk-Gn9" id="tAb-FR-k4O"/>
                                             <outlet property="studentName" destination="miZ-bf-MrI" id="4PF-2f-gAc"/>
                                             <outlet property="studentScore" destination="Ts9-eB-SCC" id="8oZ-yI-e8V"/>
-                                            <segue destination="sbf-Wi-OpE" kind="show" id="alV-xD-57B"/>
+                                            <segue destination="sbf-Wi-OpE" kind="show" identifier="studentMenu" id="alV-xD-57B"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -126,7 +126,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="GZJ-Ur-4F4" kind="show" id="A3J-3k-GNb"/>
+                                    <segue destination="GZJ-Ur-4F4" kind="show" identifier="sentencesGameView" id="A3J-3k-GNb"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FXj-Ay-3zu">

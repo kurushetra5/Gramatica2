@@ -18,6 +18,7 @@ class Student {
     var level:Level = Level()
     var rank:Rank = Rank()
     
+    
     var studentImage:UIImage {
         if image == nil {
            return #imageLiteral(resourceName: "noavatar")
@@ -45,7 +46,29 @@ class Student {
     func lose(target:WordType) {
          rank.addRank(wordType:target, to:"lose")
     }
+    
+    
+    func loadRank(withDict:[String : Int]) {
+        rank = rank.rankFrom(dict:withDict)
+    }
+    
+    
+    func dictRank() -> [String : Int] {
+        return rank.dictFromRank()
+    }
+    
+    func keepRank() {
         
-    
-    
+        let defaults = UserDefaults.standard
+        
+        if var  keppedStudents:[String : Any] = defaults.dictionary(forKey:"Students") {
+            
+            var studentDic:[String : Any]  =  keppedStudents[name] as! [String : Any]
+            studentDic["Rank"] = dictRank()
+            keppedStudents[name] = studentDic
+            defaults.set(keppedStudents, forKey: "Students")
+            //TODO: falta guardarlo bien ???
+            defaults.synchronize()
+        }
+    }
 }

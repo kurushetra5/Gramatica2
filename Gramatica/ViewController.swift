@@ -23,25 +23,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var students:[Student] = []
     
     var dictDefaults:[String : Any] = [:]
-//    {
-    
-//        set {
-//            print("")
-//        } get {
-//        let defaults = UserDefaults.standard
-//
-//        if let  keppedStudents:[String : Any] = defaults.dictionary(forKey:"Students") {
-//           return keppedStudents
-//        }else {
-//
-//        let dict:[String : Any] = [:]
-//        defaults.set(dict, forKey: "Students")
-//        return dict
-//        }
-//        }
-//
-//
-//    }
+ 
     
     func checkDefaults() {
         
@@ -67,6 +49,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 let dict:[String : Any] = value as! [String : Any]
                 student.level.actualLevel = dict["Level"] as! Int
                 student.score = dict["Score"] as! Int
+        
+        if let rankDict:[String : Int] = dict["Rank"] as? [String : Int] {
+                   student.loadRank(withDict: rankDict)
+                }
+        
                 students.append(student)
             }
     }
@@ -138,7 +125,17 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "studentMenu" {
+            
+            if let studentMenu = segue.destination as? StudentMenuViewC {
+                studentMenu.student = students[(tableViewStudents.indexPathForSelectedRow?.row)!]
+                
+            }
+        }
+
+    }
     
 
 }
