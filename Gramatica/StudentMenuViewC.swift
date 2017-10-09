@@ -48,8 +48,10 @@ class StudentMenuViewC: UIViewController ,UITableViewDataSource ,UITableViewDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "rankTypeCell", for: indexPath) as! RankTypeTableViewCell
         
         cell.rankType.text = rankTypes[indexPath.row]
-        let average:String = String(student.rank.averageFor(type:WordType(rawValue:rankTypes[indexPath.row])!))
-        cell.rankAverageLabel.text = average
+        let avg:Double = student.rank.averageFor(type:WordType(rawValue:rankTypes[indexPath.row])!)
+        let average:String = String(format: "%.0f", avg)
+        
+        cell.rankAverageLabel.text =  "\(average)%"
         
         return cell
     }

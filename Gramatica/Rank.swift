@@ -78,6 +78,7 @@ class Rank {
             let sum =  win + lose
             let sum2:Float = Float(Double(win) / Double(sum))
             result = Double(sum2 * 100)
+             
             return result
         }
         
