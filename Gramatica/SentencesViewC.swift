@@ -44,7 +44,8 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     var sentenceWith:Double = 0.0
     var ortograficTagger = OrtograficTagger()
-    var student:Student!
+//    var student:Student!
+    var player:Player!
     var timer:Timer!
     var timerCounter:Int = 0
     var failedTimes:Int = 0
@@ -55,7 +56,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         super.viewWillAppear(animated)
         hideFailedAlerts()
         ortograficTagger.exerciseDelegate = self
-//        student = Student(name:"Luis")
+ 
         updateView()
         newExercise()
         
@@ -63,9 +64,13 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
         stopTimer()
         progresTime.stopAnimation()
-        student.keepRank()
+        
+//        student.keepRank()
     }
     
     override func viewDidLoad() {
@@ -97,8 +102,8 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
             progresTime.stopAnimation()
             newExercise()
         }else if timerCounter == 5 || timerCounter == 8 {
-            student.level.tildForTime()
-            heartsGiftLabel.text = String(student.level.winerPoints)
+//            student.level.tildForTime()
+            heartsGiftLabel.text = String(4)
             animationTild()
             
         }
@@ -127,9 +132,9 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     
     func updateView() {
-        student.level.resetTild()
-        scoreLabel.text = String(student.score)
-        heartsGiftLabel.text = String(student.level.winerPoints)
+//        student.level.resetTild()
+        scoreLabel.text = String(player.score)
+        heartsGiftLabel.text = String(5)
         
     }
     
@@ -258,8 +263,10 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
              hideFailedAlerts()
             stopTimer()
              progresTime.stopAnimation()
-            student.win(target:ortograficTagger.target)
-             student.level.resetTild()
+//            student.win(target:ortograficTagger.target)
+            player.win(target:ortograficTagger.target)
+            
+//             student.level.resetTild()
             updateView()
 //             animationWinPoints()
              animationMatch()
@@ -285,7 +292,9 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
                 hideFailedAlerts()
                stopTimer()
               progresTime.stopAnimation()
-                 student.lose(target:ortograficTagger.target)
+//                 student.lose(target:ortograficTagger.target)
+                player.lose(target:ortograficTagger.target)
+                
                 updateView()
                 newExercise()
                 

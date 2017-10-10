@@ -13,4 +13,13 @@ import CoreData
 @objc(Player)
 public class Player: NSManagedObject {
 
+    
+    func win(target:WordType) {
+        score += 5
+        progres?.addRank(wordType:target, to:"win")
+        
+    }
+    func lose(target:WordType) {
+        progres?.addRank(wordType:target, to:"lose")
+    }
 }

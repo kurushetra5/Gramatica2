@@ -20,47 +20,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         createNewStudent()
     }
     
-    var students:[Student] = []
-    
-    var dictDefaults:[String : Any] = [:]
+ 
+    var players:[Player] = []
+ 
  
     
-    func checkDefaults() {
-        
-        let defaults = UserDefaults.standard
-        
-        if let  keppedStudents:[String : Any] = defaults.dictionary(forKey:"Students") {
-           dictDefaults = keppedStudents
-        }else {
-            
-            let dict:[String : Any] = [:]
-            defaults.set(dict, forKey: "Students")
-           dictDefaults = dict
-    }
-    }
+ 
     
-        
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
-        
-//        cleanDataBase()
-         newPlayer()
-         fetchPlayers()
-        
-        checkDefaults()
-    for (key,value) in dictDefaults {
-                
-                let student:Student = Student(name:key)
-                let dict:[String : Any] = value as! [String : Any]
-                student.level.actualLevel = dict["Level"] as! Int
-                student.score = dict["Score"] as! Int
-        
-        if let rankDict:[String : Int] = dict["Rank"] as? [String : Int] {
-                   student.loadRank(withDict: rankDict)
-                }
-        
-                students.append(student)
-            }
+            cleanDataBase()
+          fetchPlayers()
+        tableViewStudents.reloadData()
+ 
     }
     
     
@@ -75,6 +47,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
 
     
+    
+    
     //MARK: ------------------------------------------- CORE DATA -------------------------------------------
     func cleanDataBase() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -88,28 +62,35 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
         
     }
-    func newPlayer() {
+    
+    func newPlayer(name:String) {
+        
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let player:Player = Player(context:context)
-         let progres:Progres = Progres(context: context)
+        let progres:Progres = Progres(context: context)
+        progres.setValue(player, forKey: "owner")
+        progres.setValue(50, forKey: "verbsWin")
+        progres.setValue(25, forKey: "verbsLose")
+        player.setValue(progres, forKey: "progres")
+        player.setValue(name, forKey: "name")
+        player.setValue(0, forKey: "score")
+        player.setValue(1, forKey: "level")
+//         player.setValue(#imageLiteral(resourceName: "noavatar"), forKey: "image")
         
-         progres.setValue(player, forKey: "owner")
-        player.setValue("HolaCoreData", forKey: "name")
-          player.setValue(progres, forKey: "progres")
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }
 
+    
     func fetchPlayers() {
-        var player:[Player] = []
-
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
          do {
-            player = try context.fetch(Player.fetchRequest())
+            players = try context.fetch(Player.fetchRequest())
             } catch {
                 print("Fetching Failed")
             }
-        print(player)
+        print(players)
     }
+    
     
     
     //MARK: -------------------------------------------Fin  CORE DATA -------------------------------------------
@@ -121,20 +102,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let ok = UIAlertAction(title: "CREAR", style: .default, handler: { (action) -> Void in
             
             if let userInput = userIdTextField!.text {
-                let student:Student = Student(name:userInput)
-                self.students.append(student)
+                self.newPlayer(name:userInput)
+                self.fetchPlayers()
                 self.tableViewStudents.reloadData()
                 
-                
-                let defaults = UserDefaults.standard
-                let dict:[String : Any] = ["Name":student.name  , "Level":student.actualLevel,"Score":student.score]
-                self.dictDefaults[student.name] = dict
-                //TODO: Algo esta mal ???
-                defaults.set(self.dictDefaults, forKey:"Students")
-                defaults.synchronize()
-                
-                
- 
             }
         })
         
@@ -155,16 +126,16 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         return students.count
+         return players.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "studentCell", for: indexPath) as! StudentsTableViewCell
-        cell.studentName.text = students[indexPath.row].name
-        cell.studentScore.text = String(students[indexPath.row].score)
-        cell.studentLevel.text = "Nivel \(students[indexPath.row].level.actualLevel)"
-        cell.studentImage.image =  students[indexPath.row].studentImage
+        cell.studentName.text = players[indexPath.row].name
+        cell.studentScore.text = String(players[indexPath.row].score)
+        cell.studentLevel.text = "Nivel \(players[indexPath.row].level)"
+        cell.studentImage.image =  #imageLiteral(resourceName: "noavatar")
         return cell
     }
     
@@ -174,7 +145,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         if segue.identifier == "studentMenu" {
             
             if let studentMenu = segue.destination as? StudentMenuViewC {
-                studentMenu.student = students[(tableViewStudents.indexPathForSelectedRow?.row)!]
+                studentMenu.player = players[(tableViewStudents.indexPathForSelectedRow?.row)!]
                 
             }
         }

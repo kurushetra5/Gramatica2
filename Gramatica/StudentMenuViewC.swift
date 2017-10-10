@@ -21,7 +21,14 @@ class StudentMenuViewC: UIViewController ,UITableViewDataSource ,UITableViewDele
     
     var rankTypes = [WordType.Verb.rawValue,WordType.Noun.rawValue,WordType.Adjective.rawValue,WordType.Adverb.rawValue,WordType.Pronoun.rawValue,WordType.Determiner.rawValue,WordType.Particle.rawValue,WordType.Preposition.rawValue,WordType.Conjunction.rawValue,WordType.Interjection.rawValue,WordType.Classifier.rawValue]
     
-    var student:Student!
+ 
+    var player:Player!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+           rankTableView.reloadData()
+            
+    }
     
     
     override func viewDidLoad() {
@@ -48,9 +55,8 @@ class StudentMenuViewC: UIViewController ,UITableViewDataSource ,UITableViewDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "rankTypeCell", for: indexPath) as! RankTypeTableViewCell
         
         cell.rankType.text = rankTypes[indexPath.row]
-        let avg:Double = student.rank.averageFor(type:WordType(rawValue:rankTypes[indexPath.row])!)
+        let avg:Double = (player.progres?.averageFor(type:WordType(rawValue:rankTypes[indexPath.row])!))!
         let average:String = String(format: "%.0f", avg)
-        
         cell.rankAverageLabel.text =  "\(average)%"
         
         return cell
@@ -64,7 +70,7 @@ class StudentMenuViewC: UIViewController ,UITableViewDataSource ,UITableViewDele
         if segue.identifier == "sentencesGameView" {
             
             if let studentGameView = segue.destination as? SentencesViewC {
-                studentGameView.student = student
+                 studentGameView.player = player
                 
             }
         }
