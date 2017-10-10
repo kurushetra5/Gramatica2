@@ -27,6 +27,7 @@
 		61D2DB1A1F8581A900D7C4B3 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2DB191F8581A900D7C4B3 /* KDCircularProgress.swift */; };
 		61D2DB1C1F85A3B200D7C4B3 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2DB1B1F85A3B200D7C4B3 /* Student.swift */; };
 		61D2DB1E1F85A45800D7C4B3 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2DB1D1F85A45800D7C4B3 /* Level.swift */; };
+		61EF76341F8D65610069EDF5 /* Gramatic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61EF76321F8D65610069EDF5 /* Gramatic.xcdatamodeld */; };
 		61FDDB291F8A6BE700C0D986 /* StudentMenuViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FDDB281F8A6BE700C0D986 /* StudentMenuViewC.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		61D2DB191F8581A900D7C4B3 /* KDCircularProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		61D2DB1B1F85A3B200D7C4B3 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		61D2DB1D1F85A45800D7C4B3 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		61EF76331F8D65610069EDF5 /* Gramatic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gramatic.xcdatamodel; sourceTree = "<group>"; };
 		61FDDB281F8A6BE700C0D986 /* StudentMenuViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentMenuViewC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,6 +149,7 @@
 				61FDDB281F8A6BE700C0D986 /* StudentMenuViewC.swift */,
 				61A561911F8A7B0D00685D4F /* RankTypeTableViewCell.swift */,
 				61A561931F8A890300685D4F /* StudentsTableViewCell.swift */,
+				61EF76321F8D65610069EDF5 /* Gramatic.xcdatamodeld */,
 			);
 			path = Gramatica;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				618207761F8446EF00D2BA9C /* ViewController.swift in Sources */,
+				61EF76341F8D65610069EDF5 /* Gramatic.xcdatamodeld in Sources */,
 				61D2DB1E1F85A45800D7C4B3 /* Level.swift in Sources */,
 				61D2DB1C1F85A3B200D7C4B3 /* Student.swift in Sources */,
 				61D2DB1A1F8581A900D7C4B3 /* KDCircularProgress.swift in Sources */,
@@ -622,6 +626,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		61EF76321F8D65610069EDF5 /* Gramatic.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				61EF76331F8D65610069EDF5 /* Gramatic.xcdatamodel */,
+			);
+			currentVersion = 61EF76331F8D65610069EDF5 /* Gramatic.xcdatamodel */;
+			path = Gramatic.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 618207681F8446EF00D2BA9C /* Project object */;
 }
