@@ -27,6 +27,10 @@
 		61D2DB1A1F8581A900D7C4B3 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2DB191F8581A900D7C4B3 /* KDCircularProgress.swift */; };
 		61D2DB1C1F85A3B200D7C4B3 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2DB1B1F85A3B200D7C4B3 /* Student.swift */; };
 		61D2DB1E1F85A45800D7C4B3 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2DB1D1F85A45800D7C4B3 /* Level.swift */; };
+		61D448861F8D7C79002F93AC /* Player+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D448841F8D7C79002F93AC /* Player+CoreDataClass.swift */; };
+		61D448871F8D7C79002F93AC /* Player+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D448851F8D7C79002F93AC /* Player+CoreDataProperties.swift */; };
+		61D4488A1F8D7D7C002F93AC /* Progres+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D448881F8D7D7C002F93AC /* Progres+CoreDataClass.swift */; };
+		61D4488B1F8D7D7C002F93AC /* Progres+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D448891F8D7D7C002F93AC /* Progres+CoreDataProperties.swift */; };
 		61EF76341F8D65610069EDF5 /* Gramatic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61EF76321F8D65610069EDF5 /* Gramatic.xcdatamodeld */; };
 		61FDDB291F8A6BE700C0D986 /* StudentMenuViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FDDB281F8A6BE700C0D986 /* StudentMenuViewC.swift */; };
 /* End PBXBuildFile section */
@@ -77,6 +81,10 @@
 		61D2DB191F8581A900D7C4B3 /* KDCircularProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		61D2DB1B1F85A3B200D7C4B3 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		61D2DB1D1F85A45800D7C4B3 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		61D448841F8D7C79002F93AC /* Player+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataClass.swift"; sourceTree = "<group>"; };
+		61D448851F8D7C79002F93AC /* Player+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		61D448881F8D7D7C002F93AC /* Progres+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Progres+CoreDataClass.swift"; sourceTree = "<group>"; };
+		61D448891F8D7D7C002F93AC /* Progres+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Progres+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		61EF76331F8D65610069EDF5 /* Gramatic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gramatic.xcdatamodel; sourceTree = "<group>"; };
 		61FDDB281F8A6BE700C0D986 /* StudentMenuViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentMenuViewC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +117,10 @@
 		618207671F8446EF00D2BA9C = {
 			isa = PBXGroup;
 			children = (
+				61D448881F8D7D7C002F93AC /* Progres+CoreDataClass.swift */,
+				61D448891F8D7D7C002F93AC /* Progres+CoreDataProperties.swift */,
+				61D448841F8D7C79002F93AC /* Player+CoreDataClass.swift */,
+				61D448851F8D7C79002F93AC /* Player+CoreDataProperties.swift */,
 				6122431C1F8851C100B09165 /* textos.txt */,
 				6197DD451F882129001393A9 /* Libro1.txt */,
 				612243181F884E8500B09165 /* Frases.txt */,
@@ -311,15 +323,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61D4488B1F8D7D7C002F93AC /* Progres+CoreDataProperties.swift in Sources */,
 				618207761F8446EF00D2BA9C /* ViewController.swift in Sources */,
 				61EF76341F8D65610069EDF5 /* Gramatic.xcdatamodeld in Sources */,
 				61D2DB1E1F85A45800D7C4B3 /* Level.swift in Sources */,
+				61D448861F8D7C79002F93AC /* Player+CoreDataClass.swift in Sources */,
+				61D4488A1F8D7D7C002F93AC /* Progres+CoreDataClass.swift in Sources */,
 				61D2DB1C1F85A3B200D7C4B3 /* Student.swift in Sources */,
 				61D2DB1A1F8581A900D7C4B3 /* KDCircularProgress.swift in Sources */,
 				618207741F8446EF00D2BA9C /* AppDelegate.swift in Sources */,
 				61A561921F8A7B0D00685D4F /* RankTypeTableViewCell.swift in Sources */,
 				610F34BD1F89A6DC003DACB8 /* Rank.swift in Sources */,
 				618207A41F8453FD00D2BA9C /* SentencesViewC.swift in Sources */,
+				61D448871F8D7C79002F93AC /* Player+CoreDataProperties.swift in Sources */,
 				6149B9CB1F8457C6003DC6A7 /* OrtograficTagger.swift in Sources */,
 				61FDDB291F8A6BE700C0D986 /* StudentMenuViewC.swift in Sources */,
 				61A561941F8A890300685D4F /* StudentsTableViewCell.swift in Sources */,

@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Player" representedClassName=".Player" syncable="YES">
+    <entity name="Player" representedClassName="Player" syncable="YES">
         <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="progres" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Progres" inverseName="owner" inverseEntity="Progres" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="name"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
-    <entity name="Rank" representedClassName="Rank" syncable="YES" codeGenerationType="class">
+    <entity name="Progres" representedClassName="Progres" syncable="YES">
+        <attribute name="verbsLose" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="verbsWin" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="progres" inverseEntity="Player" syncable="YES"/>
+    </entity>
+    <entity name="TargetsAverage" representedClassName="Rank" syncable="YES">
         <attribute name="adjectiveLose" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="adjectiveWin" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="adverbLose" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -38,7 +44,8 @@
         <attribute name="verbWin" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Player" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="Rank" positionX="-63" positionY="9" width="128" height="405"/>
+        <element name="Player" positionX="-1784" positionY="-348" width="128" height="118"/>
+        <element name="TargetsAverage" positionX="-1154" positionY="-252" width="128" height="405"/>
+        <element name="Progres" positionX="-1566" positionY="-189" width="128" height="90"/>
     </elements>
 </model>

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreData
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -42,6 +42,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
+        
+//        cleanDataBase()
+         newPlayer()
+         fetchPlayers()
+        
         checkDefaults()
     for (key,value) in dictDefaults {
                 
@@ -70,6 +75,44 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
 
     
+    //MARK: ------------------------------------------- CORE DATA -------------------------------------------
+    func cleanDataBase() {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Player")
+        let request = NSBatchDeleteRequest(fetchRequest: fetch)
+        do {
+            try context.execute(request)
+            
+        } catch {
+            // Error Handling
+        }
+        
+    }
+    func newPlayer() {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let player:Player = Player(context:context)
+         let progres:Progres = Progres(context: context)
+        
+         progres.setValue(player, forKey: "owner")
+        player.setValue("HolaCoreData", forKey: "name")
+          player.setValue(progres, forKey: "progres")
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+    }
+
+    func fetchPlayers() {
+        var player:[Player] = []
+
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+         do {
+            player = try context.fetch(Player.fetchRequest())
+            } catch {
+                print("Fetching Failed")
+            }
+        print(player)
+    }
+    
+    
+    //MARK: -------------------------------------------Fin  CORE DATA -------------------------------------------
     
     
     func createNewStudent() {
