@@ -34,7 +34,8 @@ class StudentMenuViewC: UIViewController ,UITableViewDataSource ,UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+NotificationCenter.default.addObserver(self, selector:#selector(targetOn), name:.onSelectedType, object:nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(targetOff), name:.offSelectedType, object:nil)
         // Do any additional setup after loading the view.
     }
 
@@ -44,6 +45,14 @@ class StudentMenuViewC: UIViewController ,UITableViewDataSource ,UITableViewDele
     }
     
     
+    @objc func targetOff(notification: NSNotification) {
+        print("Target OFF")
+        print(notification.object!)
+    }
+    @objc func targetOn(notification: NSNotification) {
+        print("Target ON")
+        print(notification.object!)
+    }
      
     
     
@@ -56,12 +65,12 @@ class StudentMenuViewC: UIViewController ,UITableViewDataSource ,UITableViewDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "rankTypeCell", for: indexPath) as! RankTypeTableViewCell
         
         cell.rankType.text = rankTypes[indexPath.row]
+        cell.rankOwnerType = rankTypes[indexPath.row]
         let avg:Double = (player.progres?.averageFor(type:WordType(rawValue:rankTypes[indexPath.row])!))!
         
         let average:String = String(format: "%.0f", avg)
         cell.rankAverageLabel.text =  "\(average)%"
-        
-         cell.rankProgress(with:avg)
+        cell.rankProgress(with:avg)
         
         cell.doneWinLoseLabel.text =  (player.progres?.categoryResults(type:WordType(rawValue:rankTypes[indexPath.row])!))
         return cell

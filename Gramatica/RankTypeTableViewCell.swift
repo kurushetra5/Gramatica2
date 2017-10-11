@@ -11,21 +11,23 @@ import UIKit
 class RankTypeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var rankType: UILabel!
-    
-    
     @IBOutlet weak var progresView: UIProgressView!
-    
-    
     @IBOutlet weak var doneWinLoseLabel: UILabel!
-    
     @IBOutlet weak var rankAverageLabel: UILabel!
     
-    @IBOutlet weak var rankTypeUseButton: UIButton!
+   @IBAction func switchType(_ sender: UISwitch) {
+        
+        if sender.isOn {
+           NotificationCenter.default.post(name:.onSelectedType, object:rankOwnerType)
+        }else {
+            NotificationCenter.default.post(name:.offSelectedType, object:rankOwnerType)
+        }
+    }
     
-    @IBOutlet weak var rankTypeUse: UIButton!
     
+    var rankOwnerType:String!
     
-override func awakeFromNib() {
+   override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
@@ -36,6 +38,7 @@ override func awakeFromNib() {
         // Configure the view for the selected state
     }
 
+    
     
     func rankProgress(with average:Double )  {
         let progres:CGFloat = CGFloat(average / 100)

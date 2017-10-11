@@ -155,12 +155,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjH-9z-dhW">
-                                                    <rect key="frame" x="522" y="-2" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                    <state key="normal" title="ON"/>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0G-Nx-sf6">
                                                     <rect key="frame" x="186" y="9" width="197" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -177,6 +171,13 @@
                                                     <color key="progressTintColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="trackTintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </progressView>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b6H-8U-MNY">
+                                                    <rect key="frame" x="511" y="-2" width="49" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="switchType:" destination="Za5-xz-4Ub" eventType="valueChanged" id="aqh-AE-X9k"/>
+                                                    </connections>
+                                                </switch>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -184,8 +185,6 @@
                                             <outlet property="progresView" destination="lTC-qU-twr" id="efk-NQ-zrC"/>
                                             <outlet property="rankAverageLabel" destination="wRE-3C-UKf" id="hSJ-yu-fS1"/>
                                             <outlet property="rankType" destination="vN2-uh-RSR" id="tWx-sp-h2w"/>
-                                            <outlet property="rankTypeUse" destination="xjH-9z-dhW" id="xjd-GM-aPe"/>
-                                            <outlet property="rankTypeUseButton" destination="xjH-9z-dhW" id="T1Z-En-gA1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -216,7 +215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BLO-yy-IYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-266.19718309859155" y="3.75"/>
+            <point key="canvasLocation" x="-249" y="4"/>
         </scene>
         <!--Level 1-->
         <scene sceneID="fev-NJ-Jya">

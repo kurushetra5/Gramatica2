@@ -11,6 +11,11 @@ import Foundation
 protocol ExerciseDelegate {
     func newExercise(sentence:String, target:String)
 }
+extension Notification.Name {
+    
+    static let onSelectedType = Notification.Name("onSekectedType")
+    static let offSelectedType = Notification.Name("offSekectedType")
+}
 
 
 enum WordType:String {
@@ -43,6 +48,7 @@ class OrtograficTagger {
         
     }
     
+     
     
     func readFileText() {
         
