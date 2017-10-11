@@ -59,7 +59,36 @@ public class Progres: NSManagedObject {
                 particleLose += 1
             }
 
-            
+        case  WordType.Preposition:
+            if to == "win" {
+                prepositionWin += 1
+            }else if to == "lose" {
+                prepositionLose += 1
+            }
+        case  WordType.Number:
+            if to == "win" {
+                numberWin += 1
+            }else if to == "lose" {
+                numberLose += 1
+            }
+        case  WordType.Conjunction:
+            if to == "win" {
+                conjunctionWin += 1
+            }else if to == "lose" {
+                conjunctionLose += 1
+            }
+        case  WordType.Interjection:
+            if to == "win" {
+                interjectionWin += 1
+            }else if to == "lose" {
+                interjectionLose += 1
+            }
+        case  WordType.Classifier:
+            if to == "win" {
+                classifierWin += 1
+            }else if to == "lose" {
+                classifierLose += 1
+            }
         default:
             print("Error:addRank(category:String, to:String) ")
         }
@@ -80,7 +109,16 @@ public class Progres: NSManagedObject {
             return  makeAverage(win:Int(determinerWin), lose:Int(determinerLose))
         case  WordType.Particle:
             return  makeAverage(win:Int(particleWin), lose:Int(particleLose))
-            
+        case  WordType.Preposition:
+            return  makeAverage(win:Int(prepositionWin), lose:Int(prepositionLose))
+        case  WordType.Number:
+            return  makeAverage(win:Int(numberWin), lose:Int(numberLose))
+        case  WordType.Conjunction:
+            return  makeAverage(win:Int(conjunctionWin), lose:Int(conjunctionLose))
+        case  WordType.Interjection:
+            return  makeAverage(win:Int(interjectionWin), lose:Int(interjectionLose))
+        case  WordType.Classifier:
+            return  makeAverage(win:Int(classifierWin), lose:Int(classifierLose))
         default:
             print("averageFor(type:WordType) -> Double ")
             return 0.0

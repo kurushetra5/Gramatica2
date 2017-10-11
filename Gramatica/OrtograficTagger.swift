@@ -24,12 +24,12 @@ class OrtograficTagger {
     
     var exerciseDelegate:ExerciseDelegate!
 //    var sentenceWords:[String] = ["Paco","es","el","mejor","de","todos"]
-    var sentenceWords2:[String] = ["No me mires con esa cara tan triste, Jorge","Ella y yo ya te dijimos que nadie debía salir de la clase","Sonrío pero desapareció sin decirnos nada"]
+    var sentenceWords2:[String] = ["No me mires con esa cara tan triste Jorge","Ella y yo ya te dijimos tres veces que debía salir  ","Sonrío pero desapareció sin decirnos nada"]
 //   var sentenceWords2:[String] = ["David is running so far away from here","Paul is drinking a big bear in the bar","This is a very new app from luis sintes estevez"]
     var lookedTarget = "Verb"
     var target:WordType!
     
-     var targets:[String] = ["Verb","Noun" ,"Adjective","Adverb","Pronoun"]
+     var targets:[String] = ["Verb","Noun" ,"Adjective","Adverb","Pronoun","Determiner","Particle","Preposition","Conjunction","Interjection","Classifier","Number"]
 //      var targets:[String] = ["Verb"]
     var sentenceTagged:[String:String] = [:]
      var sentenceTags:[Any] = []
