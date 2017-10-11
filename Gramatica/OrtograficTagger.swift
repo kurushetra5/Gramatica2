@@ -34,8 +34,9 @@ class OrtograficTagger {
     var lookedTarget = "Verb"
     var target:WordType!
     
-     var targets:[String] = ["Verb","Noun" ,"Adjective","Adverb","Pronoun","Determiner","Particle","Preposition","Conjunction","Interjection","Classifier","Number"]
-//      var targets:[String] = ["Verb"]
+      var targets:[String] = ["Verb","Noun" ,"Adjective","Adverb","Pronoun","Determiner" ,"Preposition","Conjunction" ,"Number"]
+//      var targets:[String] = ["Conjunction"]
+    
     var sentenceTagged:[String:String] = [:]
      var sentenceTags:[Any] = []
     
@@ -52,8 +53,9 @@ class OrtograficTagger {
     
     func readFileText() {
         
-        let path = Bundle.main.path(forResource: "Frases", ofType: "txt")
+        let path = Bundle.main.path(forResource: "Libro1", ofType: "txt")
          var validSentences:[String] = []
+        
         let url:URL = URL(fileURLWithPath:path!)
         
         do {
@@ -69,7 +71,7 @@ class OrtograficTagger {
 //                var niceSentence = sentence.replacingOccurrences(of:"", with:"")
                 
                 
-                if words.count <= 6 && words.count >= 4 {
+                if words.count <= 9 && words.count >= 5 {
                     validSentences.append(sentence)
                 }
                 //TODO: Quitar puntos comas signos de las palabras ...
@@ -120,6 +122,8 @@ class OrtograficTagger {
         
         if aTag.keys.contains(lookedTarget) && aTag.values.contains(word) {
             match = true
+            print(lookedTarget)
+            print(aTag)
         }
     }
     return match
@@ -133,7 +137,7 @@ class OrtograficTagger {
     
   private  func newSentence() -> String {
         let randomNumber = Int(arc4random_uniform(UInt32(sentenceWords2.count)))
-        print(randomNumber)
+//        print(randomNumber)
         return sentenceWords2[randomNumber]
     }
     
@@ -147,9 +151,9 @@ class OrtograficTagger {
         
         for tag  in sentenceTags {
             let aTag:[String:String] = tag as! [String : String]
-            print(aTag)
+             print(aTag)
             if aTag.keys.contains(lookedTarget) {
-//                print(aTag.key)
+//                 print(aTag)
                 print(lookedTarget)
                 isOk = true
             }
@@ -177,7 +181,7 @@ class OrtograficTagger {
             sentenceTags.append(sentenceTagged)
              sentenceTagged  =  [:]
         })
- print(sentenceTags)
+// print(sentenceTags)
     
     }
     
@@ -198,7 +202,7 @@ class OrtograficTagger {
         case  WordType.Classifier.rawValue:
             return "Clasificador"
         case  WordType.Determiner.rawValue:
-            return "Adjetivo Det"
+            return "Atriculo"
         case  WordType.Conjunction.rawValue:
             return "Conjuncion"
         case  WordType.Interjection.rawValue:
@@ -206,7 +210,7 @@ class OrtograficTagger {
         case  WordType.Pronoun.rawValue:
             return "Pronombre"
         case  WordType.Noun.rawValue:
-            return "Nombre sust o per"
+            return "Nombre"
         case  WordType.Preposition.rawValue:
             return "Preposicion"
         case  WordType.Particle.rawValue:

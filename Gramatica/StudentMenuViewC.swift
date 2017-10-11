@@ -20,9 +20,10 @@ class StudentMenuViewC: UIViewController ,UITableViewDataSource ,UITableViewDele
     
     
     
-    var rankTypes = [WordType.Verb.rawValue,WordType.Noun.rawValue,WordType.Adjective.rawValue,WordType.Adverb.rawValue,WordType.Pronoun.rawValue,WordType.Determiner.rawValue,WordType.Particle.rawValue,WordType.Preposition.rawValue,WordType.Conjunction.rawValue,WordType.Interjection.rawValue,WordType.Classifier.rawValue]
+    var rankTypes = [WordType.Verb.rawValue,WordType.Noun.rawValue,WordType.Adjective.rawValue,WordType.Determiner.rawValue,WordType.Adverb.rawValue,WordType.Pronoun.rawValue,  WordType.Preposition.rawValue,WordType.Conjunction.rawValue]
     
  
+    
     var player:Player!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +55,39 @@ NotificationCenter.default.addObserver(self, selector:#selector(targetOn), name:
         print(notification.object!)
     }
      
+    func nameFor(type:WordType) -> String { //TODO: pasar clouser para no repetir cosas
+        
+        switch type {
+        case  WordType.Verb:
+            return  " Verbos"
+        case  WordType.Adjective:
+            return  " Adjetivos"
+        case WordType.Noun:
+            return  " Nombres"
+        case  WordType.Pronoun:
+            return " Pronombres"
+        case WordType.Determiner:
+            return  " Articulos"
+        case  WordType.Particle:
+            return " Particle"
+        case  WordType.Preposition:
+            return   " Preposiciones"
+        case  WordType.Number:
+            return  " Numeros"
+        case  WordType.Conjunction:
+            return " Conjunciones"
+        case  WordType.Interjection:
+            return  " Intersecciones"
+        case  WordType.Classifier:
+            return " Clasificadores"
+        case  WordType.Adverb:
+            return  " Adverbios"
+        default:
+            print("averageFor(type:WordType) -> Double ")
+            return "No Set"
+        }
+        
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,7 +98,10 @@ NotificationCenter.default.addObserver(self, selector:#selector(targetOn), name:
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "rankTypeCell", for: indexPath) as! RankTypeTableViewCell
         
-        cell.rankType.text = rankTypes[indexPath.row]
+//        cell.rankType.text = rankTypes[indexPath.row]
+        
+        cell.rankType.text = nameFor(type:WordType(rawValue: rankTypes[indexPath.row])!)
+        
         cell.rankOwnerType = rankTypes[indexPath.row]
         let avg:Double = (player.progres?.averageFor(type:WordType(rawValue:rankTypes[indexPath.row])!))!
         
