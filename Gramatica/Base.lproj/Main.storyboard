@@ -317,7 +317,7 @@
                         <viewLayoutGuide key="safeArea" id="cbg-Q7-I8f"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="Ne0-cs-oPv">
-                        <barButtonItem key="rightBarButtonItem" title="Pause" id="AuM-YB-Js9">
+                        <barButtonItem key="rightBarButtonItem" title="PAUSE" id="AuM-YB-Js9">
                             <connections>
                                 <action selector="pauseOrPlayButton:" destination="GZJ-Ur-4F4" id="bTx-Nm-VlO"/>
                             </connections>

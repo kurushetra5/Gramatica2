@@ -50,6 +50,8 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     var timerCounter:Int = 0
     var failedTimes:Int = 0
     var labels:[UILabel] = []
+    var tilds:Int = 0
+    var winerPoints:Int = 0
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,9 +103,12 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
             stopTimer()
             progresTime.stopAnimation()
             newExercise()
+            failedTimes = 0
+            hideFailedAlerts()
+            
         }else if timerCounter == 5 || timerCounter == 8 {
-//            student.level.tildForTime()
-            heartsGiftLabel.text = String(4)
+            tildForTime()
+            heartsGiftLabel.text = String(winerPoints)
             animationTild()
             
         }
@@ -115,6 +120,17 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         if (timer != nil) {
             timer.invalidate()
         }
+    }
+    
+    func tildForTime() {
+        tilds += 1
+        if tilds == 1 {
+           winerPoints = 4
+        }
+        if tilds == 2 {
+           winerPoints = 3
+        }
+        
     }
     
     
@@ -132,18 +148,21 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     
     func updateView() {
-//        student.level.resetTild()
+        tilds = 0
+        winerPoints = 5
+        failedTimes = 0
         scoreLabel.text = String(player.score)
-        heartsGiftLabel.text = String(5)
+        heartsGiftLabel.text = String(winerPoints)
         
     }
     
-    
+    //MARK: ----------------------------------- TAGGER DELEGATES -----------------------------------
     func newExercise(sentence:String, target:String) {
         
         fill(target:target)
         fill(sentence:sentence)
         resetButtonColors()
+         stopTimer()
         startTimerEvery(seconds:1.0)
         progresTime.animate(toAngle:360, duration:10) { (finish) in
             if finish == true {
@@ -156,7 +175,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     func fill(target:String) {
         textTransitionFade(text:target)
-//        exerciseTaskLabel.text = target
+        
     }
     
     
@@ -245,10 +264,8 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     
     func newExercise() {
-        
         ortograficTagger.newExercise()
         sound(forAction:1016)
-        
     }
     
   
@@ -263,10 +280,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
              hideFailedAlerts()
             stopTimer()
              progresTime.stopAnimation()
-//            student.win(target:ortograficTagger.target)
-            player.win(target:ortograficTagger.target)
-            
-//             student.level.resetTild()
+            player.win(target:ortograficTagger.target, points:winerPoints)
             updateView()
 //             animationWinPoints()
              animationMatch()
