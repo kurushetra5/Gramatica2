@@ -60,8 +60,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         } catch {
             // Error Handling
         }
-        
     }
+    
     
     func newPlayer(name:String) {
         
@@ -69,8 +69,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let player:Player = Player(context:context)
         let progres:Progres = Progres(context: context)
         progres.setValue(player, forKey: "owner")
-//        progres.setValue(0, forKey: "verbsWin")
-//        progres.setValue(25, forKey: "verbsLose")
         player.setValue(progres, forKey: "progres")
         player.setValue(name, forKey: "name")
         player.setValue(0, forKey: "score")
