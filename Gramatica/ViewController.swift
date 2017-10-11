@@ -69,8 +69,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let player:Player = Player(context:context)
         let progres:Progres = Progres(context: context)
         progres.setValue(player, forKey: "owner")
-        progres.setValue(50, forKey: "verbsWin")
-        progres.setValue(25, forKey: "verbsLose")
+//        progres.setValue(0, forKey: "verbsWin")
+//        progres.setValue(25, forKey: "verbsLose")
         player.setValue(progres, forKey: "progres")
         player.setValue(name, forKey: "name")
         player.setValue(0, forKey: "score")
@@ -91,7 +91,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         print(players)
     }
     
-    
+    func delete(player:Player) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        context.delete(player)
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        fetchPlayers()
+        tableViewStudents.reloadData()
+    }
     
     //MARK: -------------------------------------------Fin  CORE DATA -------------------------------------------
     
@@ -123,7 +129,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
 
 
-
+//MARK: -------------------------- TABLE VIEW  --------------------------
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          return players.count
@@ -140,6 +146,29 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            let dialogMessage = UIAlertController(title: "QUITAR ESTUDIANTE", message: "¿Quitaras el estudiante para siempre?", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "QUITAR", style: .default, handler: { (action) -> Void in
+                self.delete(player:self.players[indexPath.row])
+                
+            })
+            
+            let cancel = UIAlertAction(title: "CANCELAR", style: .cancel) { (action) -> Void in
+                print("Cancelado Borrar estudiante")
+            }
+            
+            dialogMessage.addAction(ok)
+            dialogMessage.addAction(cancel)
+            
+            self.present(dialogMessage, animated: true, completion: nil)
+            }
+    }
+    
+    
+    
+    //MARK: -------------------------- NAVIGATION  --------------------------
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "studentMenu" {
