@@ -61,11 +61,14 @@ class StudentMenuViewC: UIViewController ,UITableViewDataSource ,UITableViewDele
         let average:String = String(format: "%.0f", avg)
         cell.rankAverageLabel.text =  "\(average)%"
         
+         cell.rankProgress(with:avg)
+        
         cell.doneWinLoseLabel.text =  (player.progres?.categoryResults(type:WordType(rawValue:rankTypes[indexPath.row])!))
         return cell
     }
     
-      
+    
+    
     
     
     

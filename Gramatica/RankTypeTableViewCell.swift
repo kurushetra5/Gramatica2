@@ -12,7 +12,10 @@ class RankTypeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var rankType: UILabel!
     
-    @IBOutlet weak var rankProgresGradientView: UIView!
+    
+    @IBOutlet weak var progresView: UIProgressView!
+    
+    
     @IBOutlet weak var doneWinLoseLabel: UILabel!
     
     @IBOutlet weak var rankAverageLabel: UILabel!
@@ -22,8 +25,7 @@ class RankTypeTableViewCell: UITableViewCell {
     @IBOutlet weak var rankTypeUse: UIButton!
     
     
-    
-    override func awakeFromNib() {
+override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
@@ -34,4 +36,14 @@ class RankTypeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    
+    func rankProgress(with average:Double )  {
+        let progres:CGFloat = CGFloat(average / 100)
+        progresView.progress = Float(progres)
+        
+    }
+    
+    
+    
+    
 }
