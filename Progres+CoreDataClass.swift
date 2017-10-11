@@ -14,6 +14,56 @@ import CoreData
 public class Progres: NSManagedObject {
 
     
+    
+    
+    func categoryResults(win:Int, lose:Int) -> String  {
+        let done:Int = win + lose
+         return "echo: \(done) ganado: \(win) perdido: \(lose)"
+    }
+    
+    func categoryResults(type:WordType) -> String { //TODO: pasar clouser para no repetir cosas
+        
+        switch type {
+        case  WordType.Verb:
+            return categoryResults(win:Int(verbsWin), lose:Int(verbsLose))
+        case  WordType.Adjective:
+            return categoryResults(win:Int(adjectiveWin), lose:Int(adjectiveLose))
+            
+        case WordType.Noun:
+            return categoryResults(win:Int(nounWin), lose:Int(nounLose))
+            
+        case  WordType.Pronoun:
+            return categoryResults(win:Int(pronounWin), lose:Int(pronounLose))
+            
+        case WordType.Determiner:
+            return categoryResults(win:Int(determinerWin), lose:Int(determinerLose))
+            
+        case  WordType.Particle:
+            return categoryResults(win:Int(particleWin), lose:Int(particleLose))
+            
+        case  WordType.Preposition:
+            return  categoryResults(win:Int(prepositionWin), lose:Int(prepositionLose))
+            
+        case  WordType.Number:
+            return  categoryResults(win:Int(numberWin), lose:Int(numberLose))
+            
+        case  WordType.Conjunction:
+            return categoryResults(win:Int(conjunctionWin), lose:Int(conjunctionLose))
+            
+        case  WordType.Interjection:
+            return  categoryResults(win:Int(interjectionWin), lose:Int(interjectionLose))
+            
+        case  WordType.Classifier:
+            return  categoryResults(win:Int(classifierWin), lose:Int(classifierLose))
+        case  WordType.Adverb:
+            return  categoryResults(win:Int(adverbWin), lose:Int(adverbLose))
+           
+        default:
+            print("categoryResults(type:WordType) -> String ")
+            return "error"
+        }
+        
+    }
     func addRank(wordType:WordType, to:String) {
         
         switch wordType {
@@ -89,12 +139,18 @@ public class Progres: NSManagedObject {
             }else if to == "lose" {
                 classifierLose += 1
             }
+        case  WordType.Adverb:
+            if to == "win" {
+                adverbWin += 1
+            }else if to == "lose" {
+                adverbLose += 1
+            }
         default:
             print("Error:addRank(category:String, to:String) ")
         }
     }
     
-    func averageFor(type:WordType) -> Double {
+    func averageFor(type:WordType) -> Double { //TODO: pasar clouser para no repetir cosas
         
         switch type {
         case  WordType.Verb:
@@ -119,6 +175,8 @@ public class Progres: NSManagedObject {
             return  makeAverage(win:Int(interjectionWin), lose:Int(interjectionLose))
         case  WordType.Classifier:
             return  makeAverage(win:Int(classifierWin), lose:Int(classifierLose))
+        case  WordType.Adverb:
+            return  makeAverage(win:Int(adverbWin), lose:Int(adverbLose))
         default:
             print("averageFor(type:WordType) -> Double ")
             return 0.0
@@ -140,4 +198,6 @@ public class Progres: NSManagedObject {
         }
         
     }
+    
+    
 }

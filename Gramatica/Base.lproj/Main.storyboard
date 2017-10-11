@@ -161,14 +161,22 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <state key="normal" title="ON"/>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0G-Nx-sf6">
+                                                    <rect key="frame" x="186" y="14" width="197" height="12"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OeT-fi-8ov">
-                                                    <rect key="frame" x="186" y="6" width="197" height="14"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    <rect key="frame" x="186" y="0.0" width="197" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="doneWinLoseLabel" destination="l0G-Nx-sf6" id="n06-2o-gmF"/>
                                             <outlet property="rankAverageLabel" destination="wRE-3C-UKf" id="hSJ-yu-fS1"/>
                                             <outlet property="rankProgresGradientView" destination="OeT-fi-8ov" id="8y1-Ua-5FU"/>
                                             <outlet property="rankType" destination="vN2-uh-RSR" id="tWx-sp-h2w"/>
@@ -204,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BLO-yy-IYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-233" y="4"/>
+            <point key="canvasLocation" x="-233.45070422535213" y="3.75"/>
         </scene>
         <!--Level 1-->
         <scene sceneID="fev-NJ-Jya">

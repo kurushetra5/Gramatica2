@@ -13,6 +13,7 @@ class RankTypeTableViewCell: UITableViewCell {
     @IBOutlet weak var rankType: UILabel!
     
     @IBOutlet weak var rankProgresGradientView: UIView!
+    @IBOutlet weak var doneWinLoseLabel: UILabel!
     
     @IBOutlet weak var rankAverageLabel: UILabel!
     

@@ -16,6 +16,7 @@ class StudentMenuViewC: UIViewController ,UITableViewDataSource ,UITableViewDele
     
     @IBOutlet weak var customPractice: UIButton!
     
+     
     
     
     
@@ -56,9 +57,11 @@ class StudentMenuViewC: UIViewController ,UITableViewDataSource ,UITableViewDele
         
         cell.rankType.text = rankTypes[indexPath.row]
         let avg:Double = (player.progres?.averageFor(type:WordType(rawValue:rankTypes[indexPath.row])!))!
+        
         let average:String = String(format: "%.0f", avg)
         cell.rankAverageLabel.text =  "\(average)%"
         
+        cell.doneWinLoseLabel.text =  (player.progres?.categoryResults(type:WordType(rawValue:rankTypes[indexPath.row])!))
         return cell
     }
     

@@ -39,14 +39,14 @@ class OrtograficTagger {
     
     
     init() {
-//       readFileText()
+        readFileText()
         
     }
     
     
     func readFileText() {
         
-        let path = Bundle.main.path(forResource: "textos", ofType: "txt")
+        let path = Bundle.main.path(forResource: "Frases", ofType: "txt")
          var validSentences:[String] = []
         let url:URL = URL(fileURLWithPath:path!)
         
@@ -54,7 +54,7 @@ class OrtograficTagger {
             let text = try String(contentsOf:url, encoding: .utf8)
             let sentences = tagText(text:text)
             
-              print(validSentences.count)
+            
             
             
             for sentence in sentences {
@@ -63,10 +63,10 @@ class OrtograficTagger {
 //                var niceSentence = sentence.replacingOccurrences(of:"", with:"")
                 
                 
-                if words.count <= 7 && words.count >= 3 {
+                if words.count <= 6 && words.count >= 4 {
                     validSentences.append(sentence)
                 }
-                
+                //TODO: Quitar puntos comas signos de las palabras ...
                 
 //                for word in words.indices {
 //                    if words[word] == "\n" ||  words[word].count == 0  {
@@ -78,7 +78,7 @@ class OrtograficTagger {
             
             sentenceWords2 = validSentences
             
-            
+               print(validSentences.count)
             
         }
             
