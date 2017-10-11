@@ -29,7 +29,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
-            cleanDataBase()
+//            cleanDataBase()
           fetchPlayers()
         tableViewStudents.reloadData()
  

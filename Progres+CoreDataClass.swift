@@ -25,20 +25,40 @@ public class Progres: NSManagedObject {
                 verbsLose += 1
             }
         case  WordType.Adjective:
-//            adjective.results.add(to:to)
-            print("no echo")
+            if to == "win" {
+                adjectiveWin += 1
+            }else if to == "lose" {
+                adjectiveLose += 1
+            }
+            
         case WordType.Noun:
-//            nouns.results.add(to:to)
-            print("no echo")
+            if to == "win" {
+                nounWin += 1
+            }else if to == "lose" {
+                nounLose += 1
+            }
+
         case  WordType.Pronoun:
-//            Pronoun.results.add(to:to)
-            print("no echo")
+              if to == "win" {
+            pronounWin += 1
+           }else if to == "lose" {
+            pronounLose += 1
+           }
+        
         case WordType.Determiner:
-//            Determiner.results.add(to:to)
-            print("no echo")
+            if to == "win" {
+                determinerWin += 1
+            }else if to == "lose" {
+                determinerLose += 1
+            }
+
         case  WordType.Particle:
-//            Particle.results.add(to:to)
-            print("no echo")
+            if to == "win" {
+                particleWin += 1
+            }else if to == "lose" {
+                particleLose += 1
+            }
+
             
         default:
             print("Error:addRank(category:String, to:String) ")
@@ -51,15 +71,15 @@ public class Progres: NSManagedObject {
         case  WordType.Verb:
             return  makeAverage(win:Int(verbsWin), lose:Int(verbsLose))
         case  WordType.Adjective:
-            return 0.0
+            return  makeAverage(win:Int(adjectiveWin), lose:Int(adjectiveLose))
         case WordType.Noun:
-            return 0.0
+            return  makeAverage(win:Int(nounWin), lose:Int(nounLose))
         case  WordType.Pronoun:
-            return 0.0
+            return makeAverage(win:Int(pronounWin), lose:Int(pronounLose))
         case WordType.Determiner:
-            return 0.0
+            return  makeAverage(win:Int(determinerWin), lose:Int(determinerLose))
         case  WordType.Particle:
-            return 0.0
+            return  makeAverage(win:Int(particleWin), lose:Int(particleLose))
             
         default:
             print("averageFor(type:WordType) -> Double ")

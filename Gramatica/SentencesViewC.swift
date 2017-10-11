@@ -44,7 +44,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     var sentenceWith:Double = 0.0
     var ortograficTagger = OrtograficTagger()
-//    var student:Student!
+ 
     var player:Player!
     var timer:Timer!
     var timerCounter:Int = 0
