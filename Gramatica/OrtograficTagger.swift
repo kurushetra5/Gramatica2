@@ -28,82 +28,59 @@ enum WordType:String {
 class OrtograficTagger {
     
     var exerciseDelegate:ExerciseDelegate!
-//    var sentenceWords:[String] = ["Paco","es","el","mejor","de","todos"]
     var sentenceWords2:[String] = ["No me mires con esa cara tan triste Jorge","Ella y yo ya te dijimos tres veces que debía salir  ","Sonrío pero desapareció sin decirnos nada"]
-//   var sentenceWords2:[String] = ["David is running so far away from here","Paul is drinking a big bear in the bar","This is a very new app from luis sintes estevez"]
     var lookedTarget = "Verb"
     var target:WordType!
-    
-      var targets:[String] = ["Verb","Noun" ,"Adjective","Adverb","Pronoun","Determiner" ,"Preposition","Conjunction" ,"Number"]
-//      var targets:[String] = ["Conjunction"]
-    
+    var targets:[String] = ["Verb","Noun" ,"Adjective","Adverb","Pronoun","Determiner" ,"Preposition","Conjunction" ,"Number"]
+    //      var targets:[String] = ["Conjunction"]
     var sentenceTagged:[String:String] = [:]
-     var sentenceTags:[Any] = []
-    
+    var sentenceTags:[Any] = []
     var selectedSentence:String!
     
-    
-    
-    init() {
+    init(withTargets:[String]) {
         readFileText()
-        
+        targets = withTargets
     }
     
-     
     
     func readFileText() {
         
         let path = Bundle.main.path(forResource: "Libro1", ofType: "txt")
-         var validSentences:[String] = []
-        
+        var validSentences:[String] = []
         let url:URL = URL(fileURLWithPath:path!)
         
         do {
             let text = try String(contentsOf:url, encoding: .utf8)
             let sentences = tagText(text:text)
-            
-            
-            
-            
             for sentence in sentences {
-                
                 let words = sentence.components(separatedBy:" ")
-//                var niceSentence = sentence.replacingOccurrences(of:"", with:"")
-                
-                
+                //                var niceSentence = sentence.replacingOccurrences(of:"", with:"")
                 if words.count <= 9 && words.count >= 5 {
                     validSentences.append(sentence)
                 }
                 //TODO: Quitar puntos comas signos de las palabras ...
                 
-//                for word in words.indices {
-//                    if words[word] == "\n" ||  words[word].count == 0  {
-//                        words.remove(at:words.indices.first!)
-//                    }
-//                }
+                //                for word in words.indices {
+                //                    if words[word] == "\n" ||  words[word].count == 0  {
+                //                        words.remove(at:words.indices.first!)
+                //                    }
+                //                }
             }
-            
-            
             sentenceWords2 = validSentences
-            
-               print(validSentences.count)
-            
+            print(validSentences.count)
         }
-            
-        catch {
-            
+            catch {
         }
-        
-        
     }
     
     
     
     
-  public  func newExercise() {
+    
+    public  func newExercise() {
         lookedTarget =  newTarget()
-       selectedSentence = newSentence()
-    print(lookedTarget)
+        selectedSentence = newSentence()
+        print(lookedTarget)
         if checkIfSentenceMatch() {
             let target = chooseType(forTag:lookedTarget)
             exerciseDelegate?.newExercise(sentence:selectedSentence, target:target)
@@ -114,46 +91,47 @@ class OrtograficTagger {
     }
     
     
-  public  func checkMatch(word:String)  -> Bool {
     
-    var match = false
-    for tag  in sentenceTags {
-        let aTag:[String:String] = tag as! [String : String]
+    public  func checkMatch(word:String)  -> Bool {
         
-        if aTag.keys.contains(lookedTarget) && aTag.values.contains(word) {
-            match = true
-            print(lookedTarget)
-            print(aTag)
+        var match = false
+        for tag  in sentenceTags {
+            let aTag:[String:String] = tag as! [String : String]
+            
+            if aTag.keys.contains(lookedTarget) && aTag.values.contains(word) {
+                match = true
+                print(lookedTarget)
+                print(aTag)
+            }
         }
-    }
-    return match
+        return match
     }
     
     
-  private  func newTarget() -> String {
+    private  func newTarget() -> String {
         let randomNumber = Int(arc4random_uniform(UInt32(targets.count)))
         return targets[randomNumber]
     }
     
-  private  func newSentence() -> String {
+    private  func newSentence() -> String {
         let randomNumber = Int(arc4random_uniform(UInt32(sentenceWords2.count)))
-//        print(randomNumber)
+        //        print(randomNumber)
         return sentenceWords2[randomNumber]
     }
     
     
     
     
-  private  func checkIfSentenceMatch() -> Bool {
+    private  func checkIfSentenceMatch() -> Bool {
         
         var isOk:Bool = false
         tag(sentence:selectedSentence)
         
         for tag  in sentenceTags {
             let aTag:[String:String] = tag as! [String : String]
-             print(aTag)
+            print(aTag)
             if aTag.keys.contains(lookedTarget) {
-//                 print(aTag)
+                //                 print(aTag)
                 print(lookedTarget)
                 isOk = true
             }
@@ -163,9 +141,9 @@ class OrtograficTagger {
     
     
     
-  private  func tag(sentence:String) {
-    sentenceTagged  =  [:]
-    sentenceTags = []
+    private  func tag(sentence:String) {
+        sentenceTagged  =  [:]
+        sentenceTags = []
         let range = NSRange(location:0, length:sentence.utf16.count)
         let tokenOptions = NSLinguisticTagger.Options.omitWhitespace.rawValue | NSLinguisticTagger.Options.omitPunctuation.rawValue
         
@@ -179,10 +157,10 @@ class OrtograficTagger {
             //FIXME: Aqui sobreescribe valores Cambiar
             sentenceTagged[convertTag] = world
             sentenceTags.append(sentenceTagged)
-             sentenceTagged  =  [:]
+            sentenceTagged  =  [:]
         })
-// print(sentenceTags)
-    
+        // print(sentenceTags)
+        
     }
     
     
@@ -193,9 +171,9 @@ class OrtograficTagger {
         switch tag {
         case  WordType.Verb.rawValue:
             
-           return "Verbo"
+            return "Verbo"
         case  WordType.Adjective.rawValue:
-           
+            
             return "Adjetivo"
         case  WordType.Adverb.rawValue:
             return "Adverbio"
@@ -241,7 +219,7 @@ class OrtograficTagger {
             return "Otra Palabra"
         case  WordType.ParagraphBreak.rawValue:
             return "Paragrafo"
-        
+            
         default:
             return "Tag Type Not Found"
             
@@ -252,7 +230,7 @@ class OrtograficTagger {
     
     
     private  func tagText(text:String) -> [String] {
- 
+        
         var sentences:[String] = []
         
         let tagger = NSLinguisticTagger(tagSchemes: [.tokenType], options: 0)
@@ -261,7 +239,7 @@ class OrtograficTagger {
         let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace ,.omitOther]
         tagger.enumerateTags(in: range, unit: .sentence, scheme: .tokenType, options: options) { _, tokenRange, _ in
             let word = (text as NSString).substring(with: tokenRange)
-//            print("\(word)")
+            //            print("\(word)")
             sentences.append(word)
         }
         return sentences

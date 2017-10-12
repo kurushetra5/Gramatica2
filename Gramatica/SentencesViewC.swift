@@ -43,7 +43,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     
     
     var sentenceWith:Double = 0.0
-    var ortograficTagger = OrtograficTagger()
+    var ortograficTagger:OrtograficTagger!
  
     var player:Player!
     var timer:Timer!
@@ -52,11 +52,13 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     var labels:[UILabel] = []
     var tilds:Int = 0
     var winerPoints:Int = 0
-    
+    var typesOn:[String] = []
+    var typesOff:[String] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hideFailedAlerts()
+        ortograficTagger = OrtograficTagger(withTargets:typesOn)
         ortograficTagger.exerciseDelegate = self
  
         updateView()
@@ -83,6 +85,9 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
     
     func hideFailedAlerts() {
         alertOne.alpha = 0.0

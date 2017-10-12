@@ -15,7 +15,8 @@ class RankTypeTableViewCell: UITableViewCell {
     @IBOutlet weak var doneWinLoseLabel: UILabel!
     @IBOutlet weak var rankAverageLabel: UILabel!
     
-   @IBAction func switchType(_ sender: UISwitch) {
+    @IBOutlet weak var switchButton: UISwitch!
+    @IBAction func switchType(_ sender: UISwitch) {
         
         if sender.isOn {
            NotificationCenter.default.post(name:.onSelectedType, object:rankOwnerType)

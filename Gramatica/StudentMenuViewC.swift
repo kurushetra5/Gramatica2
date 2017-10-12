@@ -17,44 +17,65 @@ class StudentMenuViewC: UIViewController ,UITableViewDataSource ,UITableViewDele
     @IBOutlet weak var customPractice: UIButton!
     
      
-    
-    
-    
     var rankTypes = [WordType.Verb.rawValue,WordType.Noun.rawValue,WordType.Adjective.rawValue,WordType.Determiner.rawValue,WordType.Adverb.rawValue,WordType.Pronoun.rawValue,  WordType.Preposition.rawValue,WordType.Conjunction.rawValue]
-    
- 
-    
     var player:Player!
+    var typesOn:[String] = []
+    var typesOff:[String] = []
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-           rankTableView.reloadData()
-            
+//           rankTableView.reloadData()
+        NotificationCenter.default.addObserver(self, selector:#selector(targetOn), name:.onSelectedType, object:nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(targetOff), name:.offSelectedType, object:nil)
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-NotificationCenter.default.addObserver(self, selector:#selector(targetOn), name:.onSelectedType, object:nil)
-        NotificationCenter.default.addObserver(self, selector:#selector(targetOff), name:.offSelectedType, object:nil)
+        typesOn = rankTypes
+        
         // Do any additional setup after loading the view.
     }
-
+    override func viewWillDisappear(_ animated: Bool) {
+         super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
+    
     @objc func targetOff(notification: NSNotification) {
+        
+        let target = notification.object as! String
+        if !typesOff.contains(target) {
+            typesOff.append(target)
+        }
+        if typesOn.contains(target) {
+            typesOn.remove(at:typesOn.index(of:target)!)
+        }
+        
         print("Target OFF")
         print(notification.object!)
     }
     @objc func targetOn(notification: NSNotification) {
+        let target = notification.object as! String
+        
+        if !typesOn.contains(target) {
+            typesOn.append(target)
+        }
+        if typesOff.contains(target) {
+            typesOff.remove(at:typesOff.index(of:target)!)
+        }
         print("Target ON")
         print(notification.object!)
     }
-     
+    
+    
     func nameFor(type:WordType) -> String { //TODO: pasar clouser para no repetir cosas
         
         switch type {
@@ -105,6 +126,12 @@ NotificationCenter.default.addObserver(self, selector:#selector(targetOn), name:
         cell.rankOwnerType = rankTypes[indexPath.row]
         let avg:Double = (player.progres?.averageFor(type:WordType(rawValue:rankTypes[indexPath.row])!))!
         
+        if ifSwitchOn(type:rankTypes[indexPath.row]) {
+            cell.switchButton.setOn(true, animated: false)
+        }else {
+            cell.switchButton.setOn(false, animated: false)
+        }
+        
         let average:String = String(format: "%.0f", avg)
         cell.rankAverageLabel.text =  "\(average)%"
         cell.rankProgress(with:avg)
@@ -114,7 +141,14 @@ NotificationCenter.default.addObserver(self, selector:#selector(targetOn), name:
     }
     
     
-    
+    func ifSwitchOn(type:String) -> Bool {
+        
+        if typesOn.contains(type) {
+            return true
+        }else {
+           return false
+        }
+    }
     
     
     
@@ -125,6 +159,8 @@ NotificationCenter.default.addObserver(self, selector:#selector(targetOn), name:
             
             if let studentGameView = segue.destination as? SentencesViewC {
                  studentGameView.player = player
+                studentGameView.typesOn = typesOn
+                studentGameView.typesOff = typesOff
                 
             }
         }
