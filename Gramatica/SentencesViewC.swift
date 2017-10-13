@@ -27,18 +27,30 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     @IBOutlet weak var alertOne: UIImageView!
     @IBOutlet weak var alertTwo: UIImageView!
     
-    @IBAction func pauseOrPlayButton(_ sender: UIBarButtonItem) {
+    @IBAction func pauseOrPlayButton(_ sender: UIButton ) {
+                    stopTimer()
+                    progresTime.stopAnimation()
+                    invalidateLabels()
         
-        if sender.title == "PAUSE" {
-            stopTimer()
-            progresTime.stopAnimation()
-            invalidateLabels()
-            sender.title = "PLAY"
-        }else if sender.title == "PLAY" {
-            sender.title = "PAUSE"
-            validateLabels()
-            newExercise()
-        }
+//        if sender.title == "PAUSE" {
+//            stopTimer()
+//            progresTime.stopAnimation()
+//            invalidateLabels()
+//            sender.title = "PLAY"
+//        }else if sender.title == "PLAY" {
+//            sender.title = "PAUSE"
+//            validateLabels()
+//            newExercise()
+//        }
+    }
+    
+    @IBAction func stopPlaying(_ sender: UIButton) {
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        stopTimer()
+        progresTime.stopAnimation()
+        dismiss(animated: true, completion:nil)
     }
     
     
@@ -156,7 +168,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         tilds = 0
         winerPoints = 5
         failedTimes = 0
-        scoreLabel.text = String(player.score)
+        scoreLabel.text = String("34")
         heartsGiftLabel.text = String(winerPoints)
         
     }
@@ -421,7 +433,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         
         animator.addCompletion { (position) in
             self.heartTimer.layer.opacity = 1.0
-            self.progresTime.progressInsideFillColor = .black
+            self.progresTime.progressInsideFillColor = .gray
         }
         animator.startAnimation()
     }
@@ -454,7 +466,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         animator.addCompletion { (position) in
               self.heartTimer.layer.opacity = 1.0
             
-            self.progresTime.progressInsideFillColor = .black
+            self.progresTime.progressInsideFillColor = .gray
 //            self.stopTimer()
 //            self.progresTime.stopAnimation()
 //            self.student.win()

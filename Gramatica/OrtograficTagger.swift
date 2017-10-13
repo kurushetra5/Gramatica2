@@ -39,7 +39,7 @@ class OrtograficTagger {
     
     init(withTargets:[String]) {
         readFileText()
-        targets = withTargets
+//        targets = withTargets
     }
     
     

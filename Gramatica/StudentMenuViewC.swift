@@ -16,6 +16,13 @@ class StudentMenuViewC: UIViewController ,UITableViewDataSource ,UITableViewDele
     
     @IBOutlet weak var customPractice: UIButton!
     
+    
+    @IBAction func goStudentSelectionMenu(_ sender: UIButton) {
+        dismiss(animated:true, completion:nil)
+    }
+    
+    
+    
      
     var rankTypes = [WordType.Verb.rawValue,WordType.Noun.rawValue,WordType.Adjective.rawValue,WordType.Determiner.rawValue,WordType.Adverb.rawValue,WordType.Pronoun.rawValue,  WordType.Preposition.rawValue,WordType.Conjunction.rawValue]
     var player:Player!
