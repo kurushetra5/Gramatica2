@@ -32,7 +32,7 @@ class StudentMenuViewC: UIViewController ,UITableViewDataSource ,UITableViewDele
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//           rankTableView.reloadData()
+            rankTableView.reloadData()
         NotificationCenter.default.addObserver(self, selector:#selector(targetOn), name:.onSelectedType, object:nil)
         NotificationCenter.default.addObserver(self, selector:#selector(targetOff), name:.offSelectedType, object:nil)
     }
@@ -165,7 +165,7 @@ class StudentMenuViewC: UIViewController ,UITableViewDataSource ,UITableViewDele
         if segue.identifier == "sentencesGameView" {
             
             if let studentGameView = segue.destination as? SentencesViewC {
-                 studentGameView.player = player
+               studentGameView.player = player
                 studentGameView.typesOn = typesOn
                 studentGameView.typesOff = typesOff
                 

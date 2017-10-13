@@ -86,7 +86,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         stopTimer()
         progresTime.stopAnimation()
         
-//        student.keepRank()
+ 
     }
     
     override func viewDidLoad() {
@@ -168,7 +168,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         tilds = 0
         winerPoints = 5
         failedTimes = 0
-        scoreLabel.text = String("34")
+        scoreLabel.text = String(player.score)
         heartsGiftLabel.text = String(winerPoints)
         
     }

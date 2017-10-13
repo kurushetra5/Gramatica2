@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sro-Jt-Ag6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NMd-ua-r6X">
     <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,54 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Students Selection ViewC-->
-        <scene sceneID="44t-dD-sVU">
-            <objects>
-                <viewController id="sro-Jt-Ag6" customClass="StudentsSelectionViewC" customModule="Gramatica" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Eja-vX-yD4">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Selecciona Alumno" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wei-3V-Cib">
-                                <rect key="frame" x="0.0" y="30" width="568" height="62"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="57"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxE-IJ-uRY">
-                                <rect key="frame" x="20" y="138" width="146" height="173"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <state key="normal" image="Silla"/>
-                                <connections>
-                                    <segue destination="0B7-6W-Oou" kind="show" id="NOp-SA-Ydz"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ki-BL-ftV">
-                                <rect key="frame" x="180" y="138" width="146" height="173"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <state key="normal" image="Silla"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsb-eO-yGL">
-                                <rect key="frame" x="514" y="268" width="44" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <state key="normal" image="plus-icon-76436"/>
-                                <connections>
-                                    <action selector="newStudent:" destination="sro-Jt-Ag6" eventType="touchUpInside" id="7MJ-yN-SOZ"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="IKD-Ff-YDe"/>
-                    </view>
-                    <connections>
-                        <outlet property="seltecStudentTittle" destination="Wei-3V-Cib" id="Vn8-ft-fdB"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SeH-tT-rqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1106" y="-4691"/>
-        </scene>
         <!--Student Menu ViewC-->
         <scene sceneID="5Mr-HX-skj">
             <objects>
@@ -128,6 +80,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="0B7-6W-Oou" id="kKk-gL-c0K"/>
+                                    <outlet property="delegate" destination="0B7-6W-Oou" id="ebP-yy-oqd"/>
+                                </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="NSb-LO-Nqv">
                                 <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
@@ -174,7 +130,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Iri-QK-KcJ" kind="show" id="AdP-nf-MRd"/>
+                                    <segue destination="Iri-QK-KcJ" kind="show" identifier="sentencesGameView" id="AdP-nf-MRd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBt-Nv-vkr">
@@ -211,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcu-lj-Evs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1106" y="-3827"/>
+            <point key="canvasLocation" x="-1107" y="-3902"/>
         </scene>
         <!--Level 1-->
         <scene sceneID="5vd-Of-hpH">
@@ -357,7 +313,96 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGY-pK-ph0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1106" y="-2976"/>
+            <point key="canvasLocation" x="-1107" y="-3062"/>
+        </scene>
+        <!--Students Selection ViewC-->
+        <scene sceneID="kz9-jf-otc">
+            <objects>
+                <viewController id="NMd-ua-r6X" customClass="StudentsSelectionViewC" customModule="Gramatica" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b3K-ii-xAr">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Selecciona Alumno" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXx-k3-Hai">
+                                <rect key="frame" x="0.0" y="40" width="568" height="62"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="57"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="o3v-3M-ou9">
+                                <rect key="frame" x="0.0" y="137" width="568" height="183"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="30" minimumInteritemSpacing="10" id="5dz-kI-zq8">
+                                    <size key="itemSize" width="120" height="180"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="15" minY="0.0" maxX="0.0" maxY="2"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="studentChair" id="B4z-2D-UJd" customClass="StudentSelectionCollectionViewCell" customModule="Gramatica" customModuleProvider="target">
+                                        <rect key="frame" x="15" y="0.0" width="120" height="180"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="180"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Silla" translatesAutoresizingMaskIntoConstraints="NO" id="baf-gY-2aU">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="180"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="180" id="4ea-c2-seD"/>
+                                                        <constraint firstAttribute="width" constant="120" id="SxV-9b-vO0"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PACO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hon-tl-Eoz">
+                                                    <rect key="frame" x="0.0" y="4.5" width="120" height="25.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Hon-tl-Eoz" secondAttribute="bottom" constant="150" id="5S4-X4-9Hq"/>
+                                            <constraint firstItem="Hon-tl-Eoz" firstAttribute="leading" secondItem="B4z-2D-UJd" secondAttribute="leading" id="5xq-60-gxx"/>
+                                            <constraint firstItem="baf-gY-2aU" firstAttribute="leading" secondItem="B4z-2D-UJd" secondAttribute="leading" id="Wch-rv-WWp"/>
+                                            <constraint firstItem="baf-gY-2aU" firstAttribute="top" secondItem="B4z-2D-UJd" secondAttribute="top" id="lDa-aP-SGJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="baf-gY-2aU" secondAttribute="trailing" id="vki-9Z-86U"/>
+                                            <constraint firstAttribute="trailing" secondItem="Hon-tl-Eoz" secondAttribute="trailing" id="x3K-tG-lPe"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="studentImage" destination="baf-gY-2aU" id="jJ3-BB-lIf"/>
+                                            <outlet property="studentName" destination="Hon-tl-Eoz" id="DwG-IZ-aT1"/>
+                                            <segue destination="0B7-6W-Oou" kind="show" identifier="studentMenu" id="eJ3-Uz-hT1"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="NMd-ua-r6X" id="nLr-B8-Saf"/>
+                                    <outlet property="delegate" destination="NMd-ua-r6X" id="1Mh-HQ-GBP"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbT-XP-yDR">
+                                <rect key="frame" x="536" y="0.0" width="32" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="plus-icon-76436"/>
+                                <connections>
+                                    <action selector="newStudent:" destination="NMd-ua-r6X" eventType="touchUpInside" id="pSe-hu-SsD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="Yg5-Ha-Gh9"/>
+                    </view>
+                    <connections>
+                        <outlet property="seltecStudentTittle" destination="IXx-k3-Hai" id="xMh-qd-1Oa"/>
+                        <outlet property="studentsCollectionView" destination="o3v-3M-ou9" id="W6T-uM-2yH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a80-Je-q17" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1107.0422535211267" y="-4848.75"/>
         </scene>
     </scenes>
     <resources>
