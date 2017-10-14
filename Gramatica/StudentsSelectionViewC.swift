@@ -62,7 +62,10 @@ class StudentsSelectionViewC: UIViewController,UICollectionViewDelegate,UICollec
         } catch {
             print("Fetching Failed")
         }
-        print(players)
+//        let indexPath = NSIndexPath(item:players.index(of:players.last!)! , section:0)
+//            NSIndexPath(forItem:players.index(of:players.last!)!, inSection: 0)
+//        studentsCollectionView.insertItems(at: [indexPath as IndexPath])
+//        print(players)
          studentsCollectionView.reloadData()
     }
     
@@ -76,7 +79,8 @@ class StudentsSelectionViewC: UIViewController,UICollectionViewDelegate,UICollec
             if let userInput = userIdTextField!.text {
                 self.newPlayer(name:userInput)
                 self.fetchPlayers()
-               self.studentsCollectionView.reloadData()
+                
+//               self.studentsCollectionView.reloadData()
                 
             }
         })
@@ -133,7 +137,8 @@ class StudentsSelectionViewC: UIViewController,UICollectionViewDelegate,UICollec
         
     }
     
-
+    
+    
     
     
     

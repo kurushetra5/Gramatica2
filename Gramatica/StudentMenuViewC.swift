@@ -17,6 +17,15 @@ class StudentMenuViewC: UIViewController ,UITableViewDataSource ,UITableViewDele
     @IBOutlet weak var customPractice: UIButton!
     
     
+    @IBOutlet weak var studentScore: UILabel!
+    
+    @IBOutlet weak var studentLevel: UILabel!
+    
+    @IBOutlet weak var studentName: UILabel!
+    
+    
+    
+    
     @IBAction func goStudentSelectionMenu(_ sender: UIButton) {
         dismiss(animated:true, completion:nil)
     }
@@ -30,8 +39,12 @@ class StudentMenuViewC: UIViewController ,UITableViewDataSource ,UITableViewDele
     var typesOff:[String] = []
     
     
+    
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setUpView()
             rankTableView.reloadData()
         NotificationCenter.default.addObserver(self, selector:#selector(targetOn), name:.onSelectedType, object:nil)
         NotificationCenter.default.addObserver(self, selector:#selector(targetOff), name:.offSelectedType, object:nil)
@@ -54,6 +67,12 @@ class StudentMenuViewC: UIViewController ,UITableViewDataSource ,UITableViewDele
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func setUpView() {
+        studentScore.text = String(player.score)
+        studentLevel.text = "NIVEL \(player.level)"
+        studentName.text = player.name
+    }
     
     
     @objc func targetOff(notification: NSNotification) {
