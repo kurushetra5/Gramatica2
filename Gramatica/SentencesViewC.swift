@@ -10,6 +10,8 @@ import UIKit
 import AudioToolbox
 import SpriteKit
 
+
+
 class SentencesViewC: UIViewController,ExerciseDelegate {
     
     
@@ -26,6 +28,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
     @IBOutlet weak var heartPoints: UIImageView!
     @IBOutlet weak var alertOne: UIImageView!
     @IBOutlet weak var alertTwo: UIImageView!
+    
     
     @IBAction func pauseOrPlayButton(_ sender: UIButton ) {
                     stopTimer()
@@ -172,6 +175,7 @@ class SentencesViewC: UIViewController,ExerciseDelegate {
         heartsGiftLabel.text = String(winerPoints)
         
     }
+    
     
     //MARK: ----------------------------------- TAGGER DELEGATES -----------------------------------
     func newExercise(sentence:String, target:String) {

@@ -12,7 +12,10 @@
 		6122431A1F884E8F00B09165 /* Frases.txt in Resources */ = {isa = PBXBuildFile; fileRef = 612243181F884E8500B09165 /* Frases.txt */; };
 		6122431B1F884E9200B09165 /* Texto2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 612243191F884E8500B09165 /* Texto2.txt */; };
 		6122431D1F8851C400B09165 /* textos.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6122431C1F8851C100B09165 /* textos.txt */; };
+		612C32791F92B12F0003DD1D /* TutorialViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C32781F92B12F0003DD1D /* TutorialViewC.swift */; };
+		612C327B1F92B5F70003DD1D /* SintaxTagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C327A1F92B5F70003DD1D /* SintaxTagger.swift */; };
 		6149B9CB1F8457C6003DC6A7 /* OrtograficTagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6149B9CA1F8457C6003DC6A7 /* OrtograficTagger.swift */; };
+		6168CC451F978EEE00DC8243 /* AnimationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6168CC441F978EEE00DC8243 /* AnimationsManager.swift */; };
 		618207741F8446EF00D2BA9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618207731F8446EF00D2BA9C /* AppDelegate.swift */; };
 		618207761F8446EF00D2BA9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618207751F8446EF00D2BA9C /* ViewController.swift */; };
 		618207791F8446EF00D2BA9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 618207771F8446EF00D2BA9C /* Main.storyboard */; };
@@ -33,6 +36,7 @@
 		61D448871F8D7C79002F93AC /* Player+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D448851F8D7C79002F93AC /* Player+CoreDataProperties.swift */; };
 		61D4488A1F8D7D7C002F93AC /* Progres+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D448881F8D7D7C002F93AC /* Progres+CoreDataClass.swift */; };
 		61D4488B1F8D7D7C002F93AC /* Progres+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D448891F8D7D7C002F93AC /* Progres+CoreDataProperties.swift */; };
+		61EE4C371F93FC8C005BCF6D /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EE4C361F93FC8C005BCF6D /* StringExtensions.swift */; };
 		61EF76341F8D65610069EDF5 /* Gramatic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61EF76321F8D65610069EDF5 /* Gramatic.xcdatamodeld */; };
 		61FDDB291F8A6BE700C0D986 /* StudentMenuViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FDDB281F8A6BE700C0D986 /* StudentMenuViewC.swift */; };
 /* End PBXBuildFile section */
@@ -60,7 +64,10 @@
 		612243181F884E8500B09165 /* Frases.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Frases.txt; sourceTree = "<group>"; };
 		612243191F884E8500B09165 /* Texto2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Texto2.txt; sourceTree = "<group>"; };
 		6122431C1F8851C100B09165 /* textos.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = textos.txt; sourceTree = "<group>"; };
+		612C32781F92B12F0003DD1D /* TutorialViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewC.swift; sourceTree = "<group>"; };
+		612C327A1F92B5F70003DD1D /* SintaxTagger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SintaxTagger.swift; sourceTree = "<group>"; };
 		6149B9CA1F8457C6003DC6A7 /* OrtograficTagger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrtograficTagger.swift; sourceTree = "<group>"; };
+		6168CC441F978EEE00DC8243 /* AnimationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationsManager.swift; sourceTree = "<group>"; };
 		618207701F8446EF00D2BA9C /* Gramatica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gramatica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		618207731F8446EF00D2BA9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		618207751F8446EF00D2BA9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +96,7 @@
 		61D448851F8D7C79002F93AC /* Player+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		61D448881F8D7D7C002F93AC /* Progres+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Progres+CoreDataClass.swift"; sourceTree = "<group>"; };
 		61D448891F8D7D7C002F93AC /* Progres+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Progres+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		61EE4C361F93FC8C005BCF6D /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		61EF76331F8D65610069EDF5 /* Gramatic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gramatic.xcdatamodel; sourceTree = "<group>"; };
 		61FDDB281F8A6BE700C0D986 /* StudentMenuViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentMenuViewC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				618207731F8446EF00D2BA9C /* AppDelegate.swift */,
+				612C32781F92B12F0003DD1D /* TutorialViewC.swift */,
 				6198AB9F1F90F4210019980F /* StudentsSelectionViewC.swift */,
 				61FDDB281F8A6BE700C0D986 /* StudentMenuViewC.swift */,
 				618207A31F8453FD00D2BA9C /* SentencesViewC.swift */,
@@ -168,6 +177,9 @@
 				61A561931F8A890300685D4F /* StudentsTableViewCell.swift */,
 				61EF76321F8D65610069EDF5 /* Gramatic.xcdatamodeld */,
 				6198ABA11F9100680019980F /* StudentSelectionCollectionViewCell.swift */,
+				612C327A1F92B5F70003DD1D /* SintaxTagger.swift */,
+				61EE4C361F93FC8C005BCF6D /* StringExtensions.swift */,
+				6168CC441F978EEE00DC8243 /* AnimationsManager.swift */,
 			);
 			path = Gramatica;
 			sourceTree = "<group>";
@@ -332,19 +344,23 @@
 				61D4488B1F8D7D7C002F93AC /* Progres+CoreDataProperties.swift in Sources */,
 				618207761F8446EF00D2BA9C /* ViewController.swift in Sources */,
 				61EF76341F8D65610069EDF5 /* Gramatic.xcdatamodeld in Sources */,
+				61EE4C371F93FC8C005BCF6D /* StringExtensions.swift in Sources */,
 				61D2DB1E1F85A45800D7C4B3 /* Level.swift in Sources */,
 				61D448861F8D7C79002F93AC /* Player+CoreDataClass.swift in Sources */,
 				61D4488A1F8D7D7C002F93AC /* Progres+CoreDataClass.swift in Sources */,
 				61D2DB1C1F85A3B200D7C4B3 /* Student.swift in Sources */,
 				61D2DB1A1F8581A900D7C4B3 /* KDCircularProgress.swift in Sources */,
 				618207741F8446EF00D2BA9C /* AppDelegate.swift in Sources */,
+				6168CC451F978EEE00DC8243 /* AnimationsManager.swift in Sources */,
 				6198ABA21F9100680019980F /* StudentSelectionCollectionViewCell.swift in Sources */,
 				6198ABA01F90F4210019980F /* StudentsSelectionViewC.swift in Sources */,
 				61A561921F8A7B0D00685D4F /* RankTypeTableViewCell.swift in Sources */,
 				610F34BD1F89A6DC003DACB8 /* Rank.swift in Sources */,
 				618207A41F8453FD00D2BA9C /* SentencesViewC.swift in Sources */,
+				612C327B1F92B5F70003DD1D /* SintaxTagger.swift in Sources */,
 				61D448871F8D7C79002F93AC /* Player+CoreDataProperties.swift in Sources */,
 				6149B9CB1F8457C6003DC6A7 /* OrtograficTagger.swift in Sources */,
+				612C32791F92B12F0003DD1D /* TutorialViewC.swift in Sources */,
 				61FDDB291F8A6BE700C0D986 /* StudentMenuViewC.swift in Sources */,
 				61A561941F8A890300685D4F /* StudentsTableViewCell.swift in Sources */,
 			);

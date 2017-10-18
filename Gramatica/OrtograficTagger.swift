@@ -25,6 +25,7 @@ enum WordType:String {
 
 
 
+
 class OrtograficTagger {
     
     var exerciseDelegate:ExerciseDelegate!
@@ -36,6 +37,7 @@ class OrtograficTagger {
     var sentenceTagged:[String:String] = [:]
     var sentenceTags:[Any] = []
     var selectedSentence:String!
+    
     
     init(withTargets:[String]) {
         readFileText()
@@ -96,7 +98,7 @@ class OrtograficTagger {
         
         var match = false
         for tag  in sentenceTags {
-            let aTag:[String:String] = tag as! [String : String]
+            var  aTag:[String:String] = tag as! [String : String]
             
             if aTag.keys.contains(lookedTarget) && aTag.values.contains(word) {
                 match = true
@@ -106,6 +108,7 @@ class OrtograficTagger {
         }
         return match
     }
+    
     
     
     private  func newTarget() -> String {
@@ -154,14 +157,33 @@ class OrtograficTagger {
         tager.enumerateTags(in: range, scheme:.nameTypeOrLexicalClass, options: NSLinguisticTagger.Options(rawValue: tokenOptions),using: { tag, tokenRange,sentenceRange , stop in
             let world = (sentence as NSString).substring(with:tokenRange)
             let convertTag = tag!.rawValue
-            //FIXME: Aqui sobreescribe valores Cambiar
-            sentenceTagged[convertTag] = world
-            sentenceTags.append(sentenceTagged)
-            sentenceTagged  =  [:]
+         
+            
+            if world.isOnlyLetters() {
+                print("Solo hay letras")
+                sentenceTagged[convertTag] = world
+                sentenceTags.append(sentenceTagged)
+                sentenceTagged  =  [:]
+            }else {
+                print("""
+                          Hola:
+                          Hay algun caracter raro en:  \(world)
+                      """
+                )
+            }
+            
+//           sentenceTagged[convertTag] = world
+//            sentenceTags.append(sentenceTagged)
+//            sentenceTagged  =  [:]
         })
-        // print(sentenceTags)
-        
     }
+    
+    
+    
+ 
+    
+    
+    
     
     
     func chooseType(forTag tag:String) -> String {
