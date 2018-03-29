@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AudioToolbox
+
 
 
 class TutorialViewC: SintaxTagger  {
@@ -31,10 +31,6 @@ class TutorialViewC: SintaxTagger  {
     
     
     
-    override func viewWillAppear(_ animated: Bool) {
-         super.viewWillAppear(animated)
- 
-    }
     
     
     

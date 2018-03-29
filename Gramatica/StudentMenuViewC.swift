@@ -88,6 +88,9 @@ class StudentMenuViewC: UIViewController ,UITableViewDataSource ,UITableViewDele
         print("Target OFF")
         print(notification.object!)
     }
+    
+    
+    
     @objc func targetOn(notification: NSNotification) {
         let target = notification.object as! String
         

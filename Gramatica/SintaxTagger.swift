@@ -106,6 +106,7 @@ class SintaxTagger:UIViewController ,ExerciseDelegate {
     
     
     
+    
     //MARK: ----------------------------------- PLAYER -----------------------------------
     
     func newPlayer(name:String) {
@@ -302,9 +303,9 @@ class SintaxTagger:UIViewController ,ExerciseDelegate {
             updateView()
             stopTimer()
             circularProgres?.stopAnimation()
-            newExercise()
             failedTimes = 0
             hideFailedAlerts()
+            newExercise()
             
         }else if timerCounter == 5 || timerCounter == 8 {
             tildForTime()
@@ -480,11 +481,6 @@ class SintaxTagger:UIViewController ,ExerciseDelegate {
             self.playerCap?.layer.opacity = 1.0
             
             self.circularProgres?.progressInsideFillColor = .gray
-            //            self.stopTimer()
-            //            self.progresTime.stopAnimation()
-            //            self.student.win()
-            //            self.student.level.resetTild()
-            //            self.updateView()
             self.animationWinPoints()
             self.newExercise()
             

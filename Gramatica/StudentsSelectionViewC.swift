@@ -54,7 +54,8 @@ class StudentsSelectionViewC: UIViewController,UICollectionViewDelegate,UICollec
     
     
     
- //MARK: ------------------------------------------- CORE DATA -------------------------------------------
+    
+    //MARK: ------------------------------------------- CORE DATA -------------------------------------------
     func fetchPlayers() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         do {
@@ -62,12 +63,13 @@ class StudentsSelectionViewC: UIViewController,UICollectionViewDelegate,UICollec
         } catch {
             print("Fetching Failed")
         }
-//        let indexPath = NSIndexPath(item:players.index(of:players.last!)! , section:0)
-//            NSIndexPath(forItem:players.index(of:players.last!)!, inSection: 0)
-//        studentsCollectionView.insertItems(at: [indexPath as IndexPath])
-//        print(players)
-         studentsCollectionView.reloadData()
+        //        let indexPath = NSIndexPath(item:players.index(of:players.last!)! , section:0)
+        //            NSIndexPath(forItem:players.index(of:players.last!)!, inSection: 0)
+        //        studentsCollectionView.insertItems(at: [indexPath as IndexPath])
+        //        print(players)
+        studentsCollectionView.reloadData()
     }
+    
     
     
     

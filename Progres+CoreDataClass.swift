@@ -21,6 +21,7 @@ public class Progres: NSManagedObject {
          return "echo: \(done) ganado: \(win) perdido: \(lose)"
     }
     
+    
     func categoryResults(type:WordType) -> String { //TODO: pasar clouser para no repetir cosas
         
         switch type {

@@ -11,11 +11,13 @@ import Foundation
 protocol ExerciseDelegate {
     func newExercise(sentence:String, target:String)
 }
+
 extension Notification.Name {
     
     static let onSelectedType = Notification.Name("onSekectedType")
     static let offSelectedType = Notification.Name("offSekectedType")
 }
+
 
 
 enum WordType:String {
@@ -37,6 +39,7 @@ class OrtograficTagger {
     var sentenceTagged:[String:String] = [:]
     var sentenceTags:[Any] = []
     var selectedSentence:String!
+    
     
     
     init(withTargets:[String]) {
@@ -80,9 +83,11 @@ class OrtograficTagger {
     
     
     public  func newExercise() {
+        
         lookedTarget =  newTarget()
         selectedSentence = newSentence()
         print(lookedTarget)
+        
         if checkIfSentenceMatch() {
             let target = chooseType(forTag:lookedTarget)
             exerciseDelegate?.newExercise(sentence:selectedSentence, target:target)

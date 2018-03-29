@@ -96,8 +96,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         fetchPlayers()
         tableViewStudents.reloadData()
     }
-    
     //MARK: -------------------------------------------Fin  CORE DATA -------------------------------------------
+    
+    
+    
     
     
     func createNewStudent() {
@@ -126,6 +128,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.present(dialogMessage, animated: true, completion: nil)
     }
 
+    
+    
 
 //MARK: -------------------------- TABLE VIEW  --------------------------
 
